@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Therapy Session</title>
+    <link rel="stylesheet" href="../css/mental_health.css">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="nav">
+            <h1 class="logo">Chat Therapy Session</h1>
+            <!-- Google Login Button -->
+            <button id="google-login-btn" class="btn">Login with Google</button>
+        </nav>
+    </header>
+
+    <section class="section">
+        <div class="content-box">
+            <h2 class="section-title">Your Chat Therapy Session</h2>
+            <p>You will be connected to a therapist soon. Please wait...</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Mental Health Therapy. All rights reserved.</p>
+    </footer>
+
+    <!-- Load Google API Library -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script>
+        // Initialize Google Auth when the library is ready
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId());
+            console.log('Name: ' + profile.getName());
+            console.log('Email: ' + profile.getEmail());
+        }
+
+        function initGoogleAuth() {
+            console.log('Loading Google Auth...');
+            gapi.load('auth2', function() {
+                console.log('Google Auth loaded');
+                auth2 = gapi.auth2.init({
+                    client_id: 'YOUR_CLIENT_ID_HERE', // Replace with your actual Client ID
+                    scope: 'profile email',
+                    cookiePolicy: 'single_host_origin'
+                });
+
+                // Attach the login to the button
+                auth2.attachClickHandler('google-login-btn', {},
+                    function(googleUser) {
+                        onSignIn(googleUser);
+                    }, function(error) {
+                        console.error('Login error: ', JSON.stringify(error, undefined, 2));
+                    });
+            });
+        }
+
+        window.onload = function() {
+            initGoogleAuth();
+        };
+    </script>
+
+    <!-- Link to the JavaScript file -->
+    <script src="../scripts/mental_therapy.js"></script>
+
+</body>
+</html>

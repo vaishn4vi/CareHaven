@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="../css/bmi-style.css"> <!-- Linking the separate CSS file -->
+</head>
+<body>
+    <div class="bmi-container">
+        <div class="bmi-box">
+            <h2>BMI Calculator</h2>
+            <div class="unit-selector">
+                <label for="unit">Choose units:</label>
+                <select id="unit" onchange="updateUnitFields()">
+                    <option value="metric">Metric (kg, m)</option>
+                    <option value="us">US (lbs, ft, in)</option>
+                </select>
+            </div>
+            <div id="metric-fields">
+                <input type="number" id="weight-metric" placeholder="Enter your weight in kg" min="0" step="0.1">
+                <input type="number" id="height-metric" placeholder="Enter your height in cm" min="0" step="0.1">
+            </div>
+            <div id="us-fields" style="display:none;">
+                <input type="number" id="weight-us" placeholder="Enter your weight in lbs" min="0" step="0.1">
+                <input type="number" id="height-feet" placeholder="Enter your height in feet" min="0" step="0.1">
+                <input type="number" id="height-inches" placeholder="Enter additional height in inches" min="0" step="0.1">
+            </div>
+            <input type="number" id="age" placeholder="Enter your age" min="0" step="0.1">
+            <div class="gender-selector">
+                <label for="gender">Choose gender:</label>
+                <select id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <button onclick="calculateBMI()">Calculate BMI</button>
+            <div class="bmi-result" id="bmiResult"></div>
+            <div class="bmi-category" id="bmiCategory"></div>
+            <div class="weight-adjustment" id="weightAdjustment"></div>
+        </div>
+    </div>
+
+    <script>
+        function updateUnitFields() {
+            var unit = document.getElementById("unit").value;
+            if (unit === "metric") {
+                document.getElementById("metric-fields").style.display = "block";
+                document.getElementById("us-fields").style.display = "none";
+            } else {
+                document.getElementById("metric-fields").style.display = "none";
+                document.getElementById("us-fields").style.display = "block";
+            }
+        }
+
+        function calculateBMI() {
+            var unit = document.getElementById("unit").value;
+            var weight, height;
+
+            if (unit === "metric") {
+                weight = parseFloat(document.getElementById("weight-metric").value);
+                height = parseFloat(document.getElementById("height-metric").value) / 100; // Convert cm to meters
+            } else {
+                var weightUS = parseFloat(document.getElementById("weight-us").value);
+                var heightFeet = parseFloat(document.getElementById("height-feet").value);
+                var heightInches = parseFloat(document.getElementById("height-inches").value);
+                height = ((heightFeet * 12 + heightInches) * 0.0254); // Convert to meters
+                weight = weightUS * 0.453592; // Convert pounds to kilograms
+            }
+
+            // Check for negative values
+            if (weight <= 0 || height <= 0 || document.getElementById("age").value <= 0) {
+                alert("Please enter valid positive values.");
+                return;
+            }
+
+            // Calculate BMI
+            var bmi = weight / (height * height);
+            var bmiResult = document.getElementById("bmiResult");
+            bmiResult.innerHTML = "Your BMI is: " + bmi.toFixed(2);
+
+            // Determine the BMI category
+            var bmiCategory = document.getElementById("bmiCategory");
+            var weightAdjustment = document.getElementById("weightAdjustment");
+            if (bmi < 18.5) {
+                bmiCategory.innerHTML = "You are underweight.";
+                bmiCategory.style.color = "orange";
+                var targetWeightMin = 18.5 * (height * height);
+                var weightToGain = targetWeightMin - weight;
+                weightAdjustment.innerHTML = "To reach a normal BMI, you need to gain approximately " + weightToGain.toFixed(1) + " kg.";
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                bmiCategory.innerHTML = "You are in the normal weight range.";
+                bmiCategory.style.color = "green";
+                weightAdjustment.innerHTML = "You are in a healthy weight range. Keep up the good work!";
+            } else if (bmi >= 25 && bmi < 29.9) {
+                bmiCategory.innerHTML = "You are overweight.";
+                bmiCategory.style.color = "orange";
+                var targetWeightMax = 24.9 * (height * height);
+                var weightToLose = weight - targetWeightMax;
+                weightAdjustment.innerHTML = "To reach a normal BMI, you need to lose approximately " + weightToLose.toFixed(1) + " kg.";
+            } else {
+                bmiCategory.innerHTML = "You are obese.";
+                bmiCategory.style.color = "red";
+                var targetWeightMax = 24.9 * (height * height);
+                var weightToLose = weight - targetWeightMax;
+                weightAdjustment.innerHTML = "To reach a normal BMI, you need to lose approximately " + weightToLose.toFixed(1) + " kg.";
+            }
+        }
+    </script>
+</body>
+</html>

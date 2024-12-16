@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Medicine Composition and Allergy Info</title>
+    <link rel="stylesheet" href="medicines_info.css">
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .search-input {
+            padding: 10px;
+            width: 300px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            margin-right: 10px;
+        }
+
+        .search-btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .search-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007BFF;
+        }
+
+        .category-container {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 20px;
+            justify-content: start;
+        }
+
+        .category-box {
+            background-color: white;
+            width: 250px;
+            height: 250px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: background-color 0.3s;
+        }
+
+        .category-box img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .category-box h3 {
+            margin: 10px 0;
+            color: #007BFF;
+        }
+
+        .category-box:hover {
+            background-color: #e6f4ff;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        .form-container input,
+        .form-container select,
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .form-container button {
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            border: none;
+            margin-top: 20px;
+        }
+
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .product-list {
+            margin-top: 20px;
+        }
+
+        .product-list h3 {
+            color: #007BFF;
+        }
+
+        .product-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .product-list ul li {
+            margin-bottom: 10px;
+        }
+
+        .product-list a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .product-list a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Medicine Composition and Allergy Information</h1>
+    </header>
+
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Search for medicines or symptoms...">
+            <button class="search-btn">Search</button>
+        </div>
+        
+        <h1>Select Your Health Concern</h1>
+        <div class="category-container">
+            <a href="body.html" class="category-box">
+                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\bodyy.jpg" alt="Body" />
+                <h3>Body</h3>
+            </a>
+            <a href="hair.html" class="category-box">
+                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\hairr.jpg" alt="Hair" />
+                <h3>Hair</h3>
+            </a>
+            <a href="skin.html" class="category-box">
+                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\skinn.jpg" alt="Skin" />
+                <h3>Skin</h3>
+            </a>
+            <a href="digestive.html" class="category-box">
+                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\digest.jpg" alt="Digestive Problems" />
+                <h3>Digestive Problems</h3>
+            </a>
+            <a href="menstrual.html" class="category-box">
+                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\periods.jpg" alt="Women’s Menstrual Problems" />
+                <h3>Women’s Menstrual Problems</h3>
+            </a>
+            <a href="sorethroat.html" class="category-box">
+                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\sourthroat.jpg" alt="Sore Throat" />
+                <h3>Sore Throat</h3>
+            </a>
+            <a href="fever.html" class="category-box">
+                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\fever.jpg" alt="Fever" />
+                <h3>Fever</h3>
+            </a>
+            <a href="diabetes.html" class="category-box">
+                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\diabeties.jpg"alt="Diabetes" />
+                <h3>Diabetes</h3>
+            </a>
+            <a href="headache.html" class="category-box">
+                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\head ache.jpg"alt="Headache" />
+                <h3>Headache</h3>
+            </a>
+            <a href="bodycramps.html" class="category-box">
+                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\body cramps.jpg" alt="Body Cramps" />
+                <h3>Body Cramps</h3>
+            </a>
+            <a href="commoncold.html" class="category-box">
+                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\common cold.jpg" alt="Common Cold" />
+                <h3>Common Cold</h3>
+            </a>
+            <a href="allergies.html" class="category-box">
+                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\allergies.jpg" alt="Allergies" />
+                <h3>Allergies</h3>
+            </a>
+            <a href="jointpain.html" class="category-box">
+                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\joint pains.jpg" alt="Joint Pain" />
+                <h3>Joint Pain</h3>
+            </a>
+            <a href="respiratory.html" class="category-box">
+                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\respiratory.jpg" alt="Respiratory Issues" />
+                <h3>Respiratory Issues</h3>
+            </a>
+        </div>
+
+        <!-- Form for user inputs -->
+        <div class="form-container">
+            <h2>Upload Prescription & Personal Information</h2>
+            <form id="prescriptionForm">
+                <label for="prescription">Upload Prescription (PDF or Image):</label>
+                <input type="file" id="prescription" accept=".pdf, .jpg, .jpeg, .png" required>
+
+                <label for="skinType">Skin Type:</label>
+                <select id="skinType" required>
+                    <option value="" disabled selected>Select your skin type</option>
+                    <option value="dry">Dry</option>
+                    <option value="oily">Oily</option>
+                    <option value="combination">Combination</option>
+                    <option value="normal">Normal</option>
+                    <option value="sensitive">Sensitive</option>
+                </select>
+
+                <label for="bodyType">Body Type:</label>
+                <select id="bodyType" required>
+                    <option value="" disabled selected>Select your body type</option>
+                    <option value="thin">Thin</option>
+                    <option value="average">Average</option>
+                    <option value="overweight">Overweight</option>
+                    <option value="obese">Obese</option>
+                </select>
+
+                <label for="symptoms">Symptoms:</label>
+                <textarea id="symptoms" rows="3" placeholder="Describe your symptoms..."></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <!-- List of products based on recommendations -->
+        <div class="product-list">
+            <h3>Suggested Products</h3>
+            <ul>
+                <li><a href="product1.html">Product 1</a> - Short description here</li>
+                <li><a href="product2.html">Product 2</a> - Short description here</li>
+                <li><a href="product3.html">Product 3</a> - Short description here</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

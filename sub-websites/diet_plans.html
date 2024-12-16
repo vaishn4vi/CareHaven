@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diet Plans</title>
+  <link rel="stylesheet" href="/css/diet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<header>
+  <h1>Choose Your Diet Plan</h1>
+</header>
+
+<main>
+  <section class="diet-options">
+    <h2>Select Your Preferred Diet</h2>
+    <div class="diet-selection">
+      <div class="diet-option selected" data-diet="vegetarian" onclick="selectDiet('vegetarian')">
+        <i class="fas fa-leaf"></i>
+        <span>Vegetarian</span>
+      </div>
+      <div class="diet-option" data-diet="non-vegetarian" onclick="selectDiet('non-vegetarian')">
+        <i class="fas fa-drumstick-bite"></i>
+        <span>Non-Vegetarian</span>
+      </div>
+      <div class="diet-option" data-diet="jain" onclick="selectDiet('jain')">
+        <i class="fas fa-seedling"></i>
+        <span>Jain</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="calorie-section">
+    <label for="calories">I want to eat</label>
+    <input type="number" id="calories" placeholder="Enter calories" value="1800"> calories
+    <label for="meals">in</label>
+    <select id="meals">
+      <option value="1">1 meal</option>
+      <option value="2">2 meals</option>
+      <option value="3" selected>3 meals</option>
+      <option value="4">4 meals</option>
+    </select>
+    meals
+  </section>
+
+  <section class="macro-section">
+    <ul>
+      <li><span class="dot yellow"></span>At least 90g Carbs</li>
+      <li><span class="dot blue"></span>At least 40g Fat</li>
+      <li><span class="dot purple"></span>At least 90g Protein</li>
+    </ul>
+  </section>
+
+  <section class="allergy-section">
+    <h3>Allergies</h3>
+    <p>Select any allergies you have:</p>
+    <div class="allergy-options">
+      <label><input type="checkbox" value="nuts"> Nuts</label>
+      <label><input type="checkbox" value="dairy"> Dairy</label>
+      <label><input type="checkbox" value="gluten"> Gluten</label>
+      <label><input type="checkbox" value="shellfish"> Shellfish</label>
+      <label><input type="checkbox" value="soy"> Soy</label>
+    </div>
+  </section>
+
+  <button class="generate-plan" onclick="generateDietPlan()">Generate Diet Plan</button>
+
+  <section id="diet-plan" class="diet-plan">
+    <h2>Your Customized Diet Plan</h2>
+    <div id="meal-plan">
+      <!-- Diet Plan will be generated here -->
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2024 Healthcare Platform.</p>
+</footer>
+
+<script src="/js/diet.js"></script>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="water_tracker.css">
+
+    <title>Daily Drink Water Goal using JavaScript</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1 {
+            color: #007BFF;
+        }
+
+        .cups {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .cup {
+            display: inline-block;
+            width: 60px;
+            height: 100px;
+            margin: 5px;
+            background: #007BFF;
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cup p {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .cup.full {
+            background-color: #00b4ff;
+        }
+
+        .remained {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-align: center;
+        }
+
+        .percentage {
+            width: 100%;
+            height: 0;
+            background: rgba(255, 255, 255, 0.5);
+            transition: height 0.2s ease;
+            border-radius: 10px;
+        }
+
+        .text {
+            margin: 15px 0;
+        }
+
+        .input-group {
+            margin: 15px 0;
+        }
+
+        input,
+        select,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #researchInfo {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .illustration img {
+            width: 100px;
+            height: auto;
+            margin: 10px;
+        }
+
+        #successMessage {
+            margin-top: 20px;
+            color: #28a745;
+            font-size: 20px;
+            display: none; /* Hidden by default */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <h1>Drink Water Tracker</h1>
+            <h3 id="goal">Goal: 2 Liters</h3>
+
+            <div class="cup">
+                <div class="remained" id="remained">
+                    <span id="liters">2</span>
+                    <small>Remained</small>
+                </div>
+                <div class="percentage" id="percentage"></div>
+            </div>
+
+            <p class="text">Click on the glasses to track your water intake (1 glass = 250ml)</p>
+
+            <div class="cups">
+                <div class="cup" data-volume="250"><p>1 glass</p></div>
+                <div class="cup" data-volume="250"><p>2 glasses</p></div>
+                <div class="cup" data-volume="250"><p>3 glasses</p></div>
+                <div class="cup" data-volume="250"><p>4 glasses</p></div>
+                <div class="cup" data-volume="250"><p>5 glasses</p></div>
+                <div class="cup" data-volume="250"><p>6 glasses</p></div>
+                <div class="cup" data-volume="250"><p>7 glasses</p></div>
+                <div class="cup" data-volume="250"><p>8 glasses</p></div>
+            </div>
+
+            <div class="input-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" placeholder="Your Age" required>
+            </div>
+            <div class="input-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="height">Height (cm):</label>
+                <input type="number" id="height" placeholder="Your Height" required>
+            </div>
+            <div class="input-group">
+                <label for="weight">Weight (kg):</label>
+                <input type="number" id="weight" placeholder="Your Weight" required>
+            </div>
+            <div class="input-group">
+                <label for="requirement">Main Requirement:</label>
+                <select id="requirement" required>
+                    <option value="" disabled selected>Select Requirement</option>
+                    <option value="healthy skin">Healthy Skin</option>
+                    <option value="slim body">Slim Body</option>
+                    <option value="healthy hair">Healthy Hair</option>
+                    <option value="fitness">Fitness</option>
+                    <option value="increase height">Increase Height</option>
+                </select>
+            </div>
+
+            <button id="calculate">Calculate Water Intake</button>
+            <button id="setReminder">Set Water Reminder</button>
+
+            <p class="text" id="personalizedAdvice"></p>
+
+            <!-- Success message section -->
+            <div id="successMessage">YAYY! You did it!</div>
+
+            <!-- Research information section -->
+            <div id="researchInfo" class="research-section"></div>
+
+            <!-- Illustrations/Images -->
+            <div class="illustration">
+                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\wotah.jpg" alt="Water">
+                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\diet nutrition lifestyle.jpg" alt="Diet Nutrition">
+                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\drink.jpg" alt="Drink">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let totalWaterDrunk = 0;
+
+            // Handle glass click events
+            const glasses = document.querySelectorAll('.cup');
+            glasses.forEach((glass, index) => {
+                glass.addEventListener('click', () => {
+                    totalWaterDrunk = (index + 1) * 250; // Each glass is 250ml
+
+                    // Fill the clicked glass and previous ones
+                    glasses.forEach((g, i) => {
+                        if (i <= index) {
+                            g.classList.add('full');
+                        } else {
+                            g.classList.remove('full');
+                        }
+                    });
+
+                    // Update remaining water
+                    const goal = 2000; // 2 liters goal
+                    const remained = goal - totalWaterDrunk;
+                    document.getElementById('liters').innerText = (remained / 1000).toFixed(2);
+
+                    // Update percentage
+                    const percentage = (totalWaterDrunk / goal) * 100;
+                    document.getElementById('percentage').style.height = `${percentage}%`;
+
+                    // Show success message if goal is reached
+                    if (totalWaterDrunk >= goal) {
+                        document.getElementById('successMessage').style.display = 'block';
+                    } else {
+                        document.getElementById('successMessage').style.display = 'none'; // Hide message if goal is not reached
+                    }
+                });
+            });
+
+            // Water intake research data based on user input
+            document.getElementById('calculate').addEventListener('click', () => {
+                const age = parseInt(document.getElementById('age').value);
+                const gender = document.getElementById('gender').value;
+                const height = parseFloat(document.getElementById('height').value);
+                const weight = parseFloat(document.getElementById('weight').value);
+                const requirement = document.getElementById('requirement').value;
+
+                let advice = '';
+
+                // Age-based advice
+                if (age < 18) {
+                    advice += 'As a minor, ensure you stay hydrated throughout the day. ';
+                } else if (age >= 18 && age <= 50) {
+                    advice += 'Make sure to drink enough water to support your daily activities. ';
+                } else {
+                    advice += 'Stay hydrated to maintain your health as you age. ';
+                }
+
+                // Gender-based advice
+                if (gender === 'male') {
+                    advice += 'Men generally require more water, so keep sipping! ';
+                } else if (gender === 'female') {
+                    advice += 'Women should also stay hydrated for overall health. ';
+                }
+
+                // Height and weight based advice
+                const waterIntake = (weight / 30); // Rough estimate: 1 liter per 30 kg
+                advice += `You should aim for around ${waterIntake.toFixed(2)} liters of water daily based on your weight. `;
+
+                // Requirement-based advice
+                switch (requirement) {
+                    case 'healthy skin':
+                        advice += 'Drinking enough water can help improve your skin health.';
+                        break;
+                    case 'slim body':
+                        advice += 'Hydration is key to weight loss and maintaining a slim figure.';
+                        break;
+                    case 'healthy hair':
+                        advice += 'Water intake is crucial for maintaining healthy hair.';
+                        break;
+                    case 'fitness':
+                        advice += 'Stay hydrated to enhance your performance and recovery during workouts.';
+                        break;
+                    case 'increase height':
+                        advice += 'Staying hydrated helps support healthy growth and development.';
+                        break;
+                    default:
+                        advice += 'Keep up the great work staying hydrated!';
+                }
+
+                document.getElementById('personalizedAdvice').innerText = advice;
+            });
+
+            // Set water reminder functionality
+            document.getElementById('setReminder').addEventListener('click', () => {
+                alert("Reminder set! Don't forget to drink water regularly!");
+            });
+
+            // Display research information
+            const researchInfo = `
+                <h3>Why is water important?</h3>
+                <p>Water is essential for maintaining bodily functions, including:</p>
+                <ul>
+                    <li>Regulating body temperature</li>
+                    <li>Transporting nutrients and oxygen</li>
+                    <li>Removing waste products</li>
+                    <li>Supporting cell and organ function</li>
+                </ul>
+                <p>Drinking an adequate amount of water daily is crucial for overall health.</p>
+            `;
+            document.getElementById('researchInfo').innerHTML = researchInfo;
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health </title>
+    <link rel="stylesheet" href="C:\Users\VAISHNAVI\Desktop\carehaven\css\mental_therapy.css">
+</head>
+<body>
+<header class="header">
+    <h1 class="logo">Mental Health </h1>
+    <!-- Add more info to the header -->
+</header>
+
+<!-- Parallax Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Find Balance & Well-Being</h1>
+        <p>Start your free mental health therapy trial with certified therapists. Choose chat or video therapy.</p>
+        <!-- Move the Get Started button here, to the center -->
+        <button id="getStarted" class="btn">Get Started</button>
+    </div>
+</section>
+
+<!-- Authentication Section -->
+<section id="auth" class="section">
+    <div class="content-box">
+        <h2 class="section-title">Welcome</h2>
+        <p>Select an option to proceed:</p>
+        <button id="showRegister" class="btn">Register</button>
+        <button id="showSignIn" class="btn">Sign In</button>
+
+        <form id="signupForm" class="form" style="display:none;" action="/api/v1/users/register" method="post">
+            <input type="text" id="signupUsername" placeholder="Username" required>
+            <input type="email" id="signupEmail" placeholder="Email" required>
+            <input type="password" id="signupPassword" placeholder="Password" required>
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+
+        <form id="signinForm" class="form" style="display:none;" action="/api/v1/users/signin" method="post">
+            <input type="email" id="signinEmail" placeholder="Email" required>
+            <input type="password" id="signinPassword" placeholder="Password" required>
+            <button type="submit" class="btn">Sign In</button>
+        </form>
+
+        <div id="errorMessage" style="color: red; display: none;"></div>
+    </div>
+</section>
+<script src="C:\Users\VAISHNAVI\Desktop\carehaven\js\mental_therapy.js"></script>
+</body>
+</html>

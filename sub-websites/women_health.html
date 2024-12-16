@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Women's Health Care</title>
+    <link rel="stylesheet" href="women_health.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background-image: url("C:/Users/VAISHNAVI/Desktop/carehaven/images/download.jpg"); /* Change this to your image path */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        h1 {
+            color: #007BFF;
+        }
+
+        h2 {
+            color: #0056b3;
+        }
+
+        input,
+        select,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #results {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .article {
+            margin-top: 30px;
+            padding: 15px;
+            border: 1px solid #007BFF;
+            border-radius: 8px;
+        }
+
+        .left-image,
+        .right-image {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .left-image {
+            left: 10px;
+        }
+
+        .right-image {
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <img class="left-image" src="C:/Users/VAISHNAVI/Desktop/carehaven/images/El valor de la risa.jpg" alt="Left Image" width="500">
+    <img class="right-image" src="C:\Users\VAISHNAVI\Desktop\carehaven\images\me.jpg" alt="Right Image" width="500">
+    
+    <div class="container">
+        <h1>Women's Health Questionnaire</h1>
+        <form id="healthForm">
+            <label for="age">Age:</label>
+            <input type="number" id="age" required>
+
+            <label for="pregnant">Are you pregnant?</label>
+            <select id="pregnant" required>
+                <option value="" disabled selected>Select Option</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="cycleDuration">Duration of monthly cycle (in days):</label>
+            <input type="number" id="cycleDuration" required>
+
+            <label for="gapBetween">Gap between two menstruation periods (in days):</label>
+            <input type="number" id="gapBetween" required>
+
+            <label for="symptoms">Specific symptoms experienced:</label>
+            <input type="text" id="symptoms" placeholder="e.g. cramps, mood swings">
+
+            <label for="conditions">Pre-existing conditions:</label>
+            <input type="text" id="conditions" placeholder="e.g. PCOS, Endometriosis">
+
+            <label for="lifestyle">Lifestyle factors:</label>
+            <select id="lifestyle" required>
+                <option value="" disabled selected>Select Lifestyle</option>
+                <option value="active">Active</option>
+                <option value="sedentary">Sedentary</option>
+                <option value="balanced diet">Balanced Diet</option>
+                <option value="special diet">Special Diet</option>
+            </select>
+
+            <button type="submit">Get Health Advice</button>
+        </form>
+
+        <div id="results"></div>
+    </div>
+
+    <script>
+        document.getElementById('healthForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const age = parseInt(document.getElementById('age').value);
+            const pregnant = document.getElementById('pregnant').value;
+            const cycleDuration = parseInt(document.getElementById('cycleDuration').value);
+            const gapBetween = parseInt(document.getElementById('gapBetween').value);
+            const symptoms = document.getElementById('symptoms').value;
+            const conditions = document.getElementById('conditions').value;
+            const lifestyle = document.getElementById('lifestyle').value;
+
+            let advice = "Based on your input, here is some health information:\n\n";
+
+            // Basic health advice based on age
+            if (age < 18) {
+                advice += "As a young woman, it's essential to stay hydrated and maintain a balanced diet. Regular check-ups with a healthcare provider are crucial to ensure optimal health and development.\n";
+            } else if (age >= 18 && age < 40) {
+                advice += "For women in this age group, regular exercise and monitoring of menstrual health are vital. If pregnant, prenatal care is essential for the health of both mother and baby.\n";
+            } else {
+                advice += "For women over 40, regular screenings (like mammograms and pelvic exams) and a healthy lifestyle can help manage symptoms of menopause and reduce health risks.\n";
+            }
+
+            // Pregnancy advice
+            if (pregnant === "yes") {
+                advice += "Congratulations! Ensure you take prenatal vitamins and maintain a balanced diet rich in folic acid, iron, and calcium. Regular check-ups with your obstetrician are important to monitor the health of you and your baby.\n";
+            } else {
+                advice += "If not pregnant, it's vital to keep up with regular gynecological exams and screenings, especially if you experience any concerning symptoms.\n";
+            }
+
+            // Monthly cycle
+            advice += `Your monthly cycle lasts ${cycleDuration} days with a gap of ${gapBetween} days between periods. Regularity is key for menstrual health, and any significant changes should be discussed with a healthcare provider.\n`;
+
+            // Lifestyle and conditions
+            advice += `You mentioned a ${lifestyle} lifestyle. Maintaining a healthy lifestyle is crucial for managing symptoms related to your cycle and overall health.\n`;
+
+            // Symptoms and conditions
+            if (symptoms) {
+                advice += `You reported experiencing symptoms such as: ${symptoms}. It is advisable to consult a healthcare provider for proper management and treatment options.\n`;
+            }
+
+            if (conditions) {
+                advice += `You have pre-existing conditions: ${conditions}. It’s important to inform your healthcare provider about these conditions for appropriate management and care.\n`;
+            }
+
+            // Display the advice
+            document.getElementById('results').innerText = advice;
+
+            // Provide relevant articles based on user input
+            showArticles(age, pregnant, cycleDuration, gapBetween, symptoms, conditions, lifestyle);
+        });
+
+        function showArticles(age, pregnant, cycleDuration, gapBetween, symptoms, conditions, lifestyle) {
+            const articlesContainer = document.getElementById('results');
+            let articlesHTML = "<div class='article'><h2>Recommended Articles:</h2>";
+
+            // Article suggestions based on user input
+            if (age < 18) {
+                articlesHTML += "<p>1. <a href='#'>Understanding Adolescent Menstrual Health</a></p>";
+                articlesHTML += "<p>2. <a href='#'>Nutrition Tips for Teen Girls</a></p>";
+            } else if (age >= 18 && age < 40) {
+                articlesHTML += "<p>1. <a href='#'>Prenatal Care for Expecting Mothers</a></p>";
+                articlesHTML += "<p>2. <a href='#'>Managing Symptoms of PMS</a></p>";
+            } else {
+                articlesHTML += "<p>1. <a href='#'>Menopause: What to Expect</a></p>";
+                articlesHTML += "<p>2. <a href='#'>Heart Health for Women Over 40</a></p>";
+            }
+
+            if (pregnant === "yes") {
+                articlesHTML += "<p>3. <a href='#'>Healthy Eating During Pregnancy</a></p>";
+                articlesHTML += "<p>4. <a href='#'>Exercise Tips for Pregnant Women</a></p>";
+            }
+
+            if (symptoms) {
+                articlesHTML += "<p>5. <a href='#'>Coping with Menstrual Pain</a></p>";
+            }
+
+            articlesHTML += "</div>";
+
+            // Add research information based on user input
+            const researchInfoHTML = getResearchInformation(age, pregnant, cycleDuration, gapBetween, symptoms, conditions, lifestyle);
+            articlesHTML += researchInfoHTML;
+
+            articlesContainer.innerHTML += articlesHTML;
+        }
+
+        function getResearchInformation(age, pregnant, cycleDuration, gapBetween, symptoms, conditions, lifestyle) {
+            let researchHTML = "<h2>Research-Based Information and Advice</h2>";
+
+// General health research information
+researchHTML += "<p>1. Regular check-ups are vital for early detection of health issues. The American College of Obstetricians and Gynecologists (ACOG) recommends that women have their first gynecological visit between ages 13 and 15.</p>";
+researchHTML += "<p>2. Menstrual health is crucial; understanding the menstrual cycle helps women recognize what is normal for them. Any irregularities should be evaluated by a healthcare provider.</p>";
+
+// Research on lifestyle impacts
+researchHTML += "<p>3. Studies show that a balanced diet and regular exercise can alleviate many symptoms associated with PMS and other menstrual disorders. The National Institutes of Health (NIH) suggests maintaining a healthy weight as it can positively influence menstrual regularity.</p>";
+
+// Specific research for pregnant women
+if (pregnant === "yes") {
+    researchHTML += "<p>4. Prenatal vitamins, especially those containing folic acid, are essential for fetal development and can significantly reduce the risk of neural tube defects.</p>";
+    researchHTML += "<p>5. The CDC recommends regular prenatal check-ups to monitor both maternal and fetal health.</p>";
+}
+
+// Research on age-related health concerns
+if (age >= 40) {
+    researchHTML += "<p>6. Research indicates that women over 40 should have regular screenings for breast and cervical cancer. The American Cancer Society recommends mammograms starting at age 40.</p>";
+}
+
+return researchHTML;
+}
+</script>
+</body>
+
+</html>
