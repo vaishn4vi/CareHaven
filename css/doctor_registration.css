@@ -1,0 +1,131 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Header */
+header {
+    background-color: #f8f9fa;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header .logo h1 {
+    color: #0062cc;
+    font-size: 28px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #0062cc;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    color: #004a99;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #e9f5fc;
+    padding: 80px 20px;
+    text-align: center;
+    color: #333;
+}
+
+.hero h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+}
+
+/* Registration Form */
+.registration-form {
+    padding: 50px 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.registration-form h3 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+}
+
+form .form-group {
+    margin-bottom: 20px;
+}
+
+form .form-group label {
+    display: block;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+form .form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form .form-group input[type="file"] {
+    border: none;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #0062cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #004a99;
+}
+
+/* Footer */
+footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    color: #666;
+}
+
+footer nav ul {
+    list-style: none;
+    display: inline-flex;
+    gap: 20px;
+}
+
+footer nav ul li a {
+    text-decoration: none;
+    color: #666;
+}
+
+footer nav ul li a:hover {
+    color: #333;
+}

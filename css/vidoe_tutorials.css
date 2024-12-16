@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    background: url('C:/Users/VAISHNAVI/Desktop/carehaven/images/cutuuu.gif') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center; 
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff4081;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff1e61;
+}
+
+.video-results {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.video {
+    margin: 10px;
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.video iframe {
+    width: 100%;
+    height: 200px;
+    border: none;
+}

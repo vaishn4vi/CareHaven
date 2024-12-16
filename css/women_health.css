@@ -1,0 +1,112 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+    position: relative;
+    text-align: center; /* Center align text */
+}
+
+/* Corner Images */
+.corner-image {
+    position: absolute;
+    width: 100px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.left {
+    top: 20px; /* Adjust position */
+    left: 20px; /* Adjust position */
+}
+
+.right {
+    top: 20px; /* Adjust position */
+    right: 20px; /* Adjust position */
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 0 auto; /* Center the container */
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block; /* Allow left/right images to show beside */
+    position: relative; /* To allow absolute positioning of images */
+}
+
+/* Headings */
+h1 {
+    font-size: 24px;
+    color: #333333;
+    text-align: center;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #555555;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+input:focus, select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Button Styles */
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Results Section */
+#results {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+
+/* Article Links */
+.article h2 {
+    margin-top: 20px;
+}
+
+.article p {
+    margin: 5px 0;
+}
+
+.article a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.article a:hover {
+    text-decoration: underline;
+}

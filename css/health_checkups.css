@@ -1,0 +1,94 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background-color: #00bfa5;
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.header-container h1 {
+    font-size: 2.5rem;
+}
+
+.header-container p {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+}
+
+section {
+    padding: 2rem 1rem;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.package-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.package-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.package-card h3 {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.package-card p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.package-card button {
+    background-color: #00bfa5;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+footer p {
+    font-size: 0.9rem;
+}

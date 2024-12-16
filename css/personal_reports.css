@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4; /* Light background */
+}
+
+header {
+    background: #0078d4; /* Header color */
+    color: white;
+    padding: 20px;
+    position: relative;
+}
+
+header .logo h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+nav {
+    text-align: right;
+}
+
+nav ul {
+    list-style: none;
+    display: inline-flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #f4f4f4; /* Change color on hover */
+}
+
+.banner {
+    background: url('images/banner-background.jpg') no-repeat center center; /* Replace with your banner image */
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+    position: relative;
+}
+
+.banner h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.banner p {
+    font-size: 18px;
+}
+
+.info-section,
+.features-section,
+.how-to-section,
+.contact-section {
+    background: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p,
+ul,
+ol {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: disc; /* Add bullets to unordered list */
+    margin-left: 20px; /* Indent list */
+}
+
+ol {
+    list-style-type: decimal; /* Add numbers to ordered list */
+    margin-left: 20px; /* Indent list */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #0078d4; /* Footer color */
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 20px; /* Add margin to top */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack menu items vertically */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Margin for vertical stacking */
+    }
+
+    .banner h2 {
+        font-size: 28px; /* Smaller heading for mobile */
+    }
+
+    .banner p {
+        font-size: 16px; /* Smaller text for mobile */
+    }
+}

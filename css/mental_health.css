@@ -1,0 +1,111 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url("images/background_bottom.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #333;
+}
+
+/* Header Styling */
+.header {
+    background-color: rgba(7, 8, 85, 0.9);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    color: #f5f5f5;
+}
+
+/* User Info in Header */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #f5f5f5;
+}
+
+.btn-logout {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.btn-logout:hover {
+    background-color: #e60000;
+}
+
+/* Main Section */
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); /* Adjust for header/footer height */
+}
+
+.content-box {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 400px;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+/* Button Styles */
+.btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 20px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Organize buttons in a row */
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: rgba(7, 8, 85, 0.9);
+    padding: 20px;
+    text-align: center;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
