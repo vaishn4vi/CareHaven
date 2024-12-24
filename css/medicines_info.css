@@ -1,4 +1,7 @@
-/* General Styles */
+a {
+    text-decoration: none;
+  }
+  
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;

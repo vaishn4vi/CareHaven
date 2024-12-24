@@ -1,6 +1,6 @@
 body {
     font-family: 'Poppins', sans-serif;
-    background: url('C:/Users/VAISHNAVI/Desktop/carehaven/images/pani.gif') no-repeat center center fixed;
+    background: url('/images/pani.gif') no-repeat center center fixed;
     background-size: cover; /* Ensures the GIF background covers the entire page */
     margin: 0;
     padding: 20px;

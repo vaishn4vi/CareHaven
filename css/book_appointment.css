@@ -45,11 +45,24 @@ header nav ul li a:hover {
     padding: 100px 20px;
     text-align: center;
     color: white;
+    position: relative;  /* Added for overlay positioning */
+}
+
+.hero:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);  /* Semi-transparent black overlay */
+    z-index: -1;  /* Keep the overlay behind the text */
 }
 
 .hero h2 {
     font-size: 40px;
     margin-bottom: 20px;
+    color: white;  /* Ensure text color is white */
 }
 
 .hero p {
@@ -71,27 +84,34 @@ header nav ul li a:hover {
     background-color: #004a99;
 }
 
+
 /* Packages Section */
 .packages {
     padding: 50px 20px;
     background-color: #f9f9f9;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Ensures the cards are centered */
+    gap: 20px; /* Adds space between the cards */
 }
 
 .packages h2 {
     font-size: 36px;
     margin-bottom: 40px;
     color: #333;
+    width: 100%;
+    text-align: center;
 }
 
 .package-card {
-    display: inline-block;
     width: 300px;
     padding: 20px;
     margin: 10px;
     background-color: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
+    text-align: center;
 }
 
 .package-card img {

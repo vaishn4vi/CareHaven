@@ -2,7 +2,7 @@ body {
     margin: 0;
     font-family: 'Arial', sans-serif;
     color: #fff;
-    background: url('C:/Users/VAISHNAVI/Desktop/carehaven/images/cutuuu.gif') no-repeat center center fixed;
+    background: url('/images/cutuuu.gif') no-repeat center center fixed;
     background-size: cover;
     display: flex;
     justify-content: center;

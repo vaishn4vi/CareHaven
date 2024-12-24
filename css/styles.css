@@ -1,4 +1,9 @@
 /* Global Styles */
+
+a {
+    text-decoration: none;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,10 +14,11 @@ body {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     color: #333;
-    background-image: url("/images/background_index.jpg"); /* Replace with your actual image URL */
+    background: rgb(2,0,36);
+    background: linear-gradient(360deg, rgba(2,0,36,1) 0%, rgb(18, 135, 203) 0%, rgb(184, 219, 239) 100%);
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Optional: keeps background fixed on scroll */
+    background-attachment: fixed;
 }
 
 
@@ -146,6 +152,8 @@ main {
 }
 
 .sub-website-box {
+    text-align: center;  /* Center the image and heading horizontally */
+    padding: 20px;
     width: calc(25% - 30px);
     min-width: 220px;
     height: 250px;
@@ -165,16 +173,17 @@ main {
 }
 
 .sub-website-box img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 15px;
+    display: block;  /* Make the image a block element */
+    margin-left: auto;  /* Automatically adjust the left margin */
+    margin-right: auto;  /* Automatically adjust the right margin */
+    max-width: 60%;  /* Ensure the image does not overflow */
+    height: auto;  
 }
 
 .sub-website-box h3 {
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
-    text-align: center;
+    margin-top: 10px;  /* Add space between image and heading */
+    color: #333;  /* Set a color for the heading text */
+    font-size: 1.2rem;  /* Adjust the font size if needed */
 }
 
 /* Chat Assistant Styles */

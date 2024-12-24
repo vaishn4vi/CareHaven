@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Medicine Composition and Allergy Info</title>
-    <link rel="stylesheet" href="medicines_info.css">
+    <title>Medicine Composition</title>
+    <link rel="stylesheet" href="/css/medicines_info.css">
     <style>
         /* General styling */
         body {
@@ -19,10 +19,11 @@
 
         header {
             background-color: #007BFF;
-            color: white;
+            color: white; /* Changed to white for better contrast */
             padding: 10px 20px;
             text-align: center;
         }
+
 
         .search-bar {
             display: flex;
@@ -64,16 +65,16 @@
 
         .category-container {
             display: flex;
-            flex-wrap: nowrap;
-            overflow-x: auto;
+            flex-wrap: nowrap; /* Keep items in a single line */
             gap: 20px;
-            justify-content: start;
+            overflow-x: auto; /* Enable horizontal scrolling */
+            padding-bottom: 10px; /* Padding to avoid the scrollbar hiding content */
         }
 
         .category-box {
             background-color: white;
             width: 250px;
-            height: 250px;
+            height: 300px; /* Increased height for uniformity */
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -81,17 +82,23 @@
             cursor: pointer;
             flex-shrink: 0;
             transition: background-color 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Align text and image */
         }
 
         .category-box img {
-            max-width: 80%;
-            height: auto;
+            width: 100%; /* Ensure the image takes full width */
+            height: 150px; /* Set uniform height for images */
+            object-fit: cover; /* Maintain aspect ratio */
             border-radius: 8px;
         }
 
         .category-box h3 {
             margin: 10px 0;
             color: #007BFF;
+            font-size: 18px;
+            font-weight: bold;
         }
 
         .category-box:hover {
@@ -163,7 +170,7 @@
 
 <body>
     <header>
-        <h1>Medicine Composition and Allergy Information</h1>
+        <h1>Medicine Composition</h1>
     </header>
 
     <div class="container">
@@ -175,59 +182,59 @@
         <h1>Select Your Health Concern</h1>
         <div class="category-container">
             <a href="body.html" class="category-box">
-                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\bodyy.jpg" alt="Body" />
+                <img src="/images/bodyy.jpg" alt="Body" />
                 <h3>Body</h3>
             </a>
             <a href="hair.html" class="category-box">
-                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\hairr.jpg" alt="Hair" />
+                <img src="/images/hairr.jpg" alt="Hair" />
                 <h3>Hair</h3>
             </a>
             <a href="skin.html" class="category-box">
-                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\skinn.jpg" alt="Skin" />
+                <img src="/images/skinn.jpg" alt="Skin" />
                 <h3>Skin</h3>
             </a>
             <a href="digestive.html" class="category-box">
-                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\digest.jpg" alt="Digestive Problems" />
+                <img src="/images/digest.jpg" alt="Digestive Problems" />
                 <h3>Digestive Problems</h3>
             </a>
             <a href="menstrual.html" class="category-box">
-                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\periods.jpg" alt="Women’s Menstrual Problems" />
+                <img src="/images/periods.jpg" alt="Women’s Menstrual Problems" />
                 <h3>Women’s Menstrual Problems</h3>
             </a>
             <a href="sorethroat.html" class="category-box">
-                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\sourthroat.jpg" alt="Sore Throat" />
+                <img src="/images/sourthroat.jpg" alt="Sore Throat" />
                 <h3>Sore Throat</h3>
             </a>
             <a href="fever.html" class="category-box">
-                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\fever.jpg" alt="Fever" />
+                <img src="/images/fever.jpg" alt="Fever" />
                 <h3>Fever</h3>
             </a>
             <a href="diabetes.html" class="category-box">
-                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\diabeties.jpg"alt="Diabetes" />
+                <img src="/images/diabeties.jpg"alt="Diabetes" />
                 <h3>Diabetes</h3>
             </a>
             <a href="headache.html" class="category-box">
-                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\head ache.jpg"alt="Headache" />
+                <img src="/images/head ache.jpg"alt="Headache" />
                 <h3>Headache</h3>
             </a>
             <a href="bodycramps.html" class="category-box">
-                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\body cramps.jpg" alt="Body Cramps" />
+                <img src="/images/body cramps.jpg" alt="Body Cramps" />
                 <h3>Body Cramps</h3>
             </a>
             <a href="commoncold.html" class="category-box">
-                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\common cold.jpg" alt="Common Cold" />
+                <img src="/images/common cold.jpg" alt="Common Cold" />
                 <h3>Common Cold</h3>
             </a>
             <a href="allergies.html" class="category-box">
-                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\allergies.jpg" alt="Allergies" />
+                <img src="/images/allergies.jpg" alt="Allergies" />
                 <h3>Allergies</h3>
             </a>
             <a href="jointpain.html" class="category-box">
-                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\joint pains.jpg" alt="Joint Pain" />
+                <img src="/images/joint pains.jpg" alt="Joint Pain" />
                 <h3>Joint Pain</h3>
             </a>
             <a href="respiratory.html" class="category-box">
-                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\respiratory.jpg" alt="Respiratory Issues" />
+                <img src="/images/respiratory.jpg" alt="Respiratory Issues" />
                 <h3>Respiratory Issues</h3>
             </a>
         </div>

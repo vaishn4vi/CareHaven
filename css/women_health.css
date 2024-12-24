@@ -1,11 +1,13 @@
 /* Global Styles */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f9f9f9;
+    background-color: #f0f8ff;
     margin: 0;
     padding: 20px;
-    position: relative;
-    text-align: center; /* Center align text */
+    text-align: center;
+    background-image: url("/images/download.jpg"); /* Change this to your image path */
+    background-size: cover;
+    background-position: center;
 }
 
 /* Corner Images */
@@ -25,6 +27,21 @@ body {
     right: 20px; /* Adjust position */
 }
 
+.left-image,
+.right-image {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.left-image {
+    left: 10px;
+}
+
+.right-image {
+    right: 10px;
+}
+
 /* Container */
 .container {
     max-width: 800px;
@@ -40,8 +57,12 @@ body {
 /* Headings */
 h1 {
     font-size: 24px;
-    color: #333333;
+    color: #007BFF;
     text-align: center;
+}
+
+h2 {
+    color: #0056b3;
 }
 
 /* Form Styles */
@@ -57,10 +78,12 @@ label {
 }
 
 input, select {
+    width: 100%;
     padding: 10px;
     border: 1px solid #cccccc;
-    border-radius: 4px;
+    border-radius: 5px;
     font-size: 16px;
+    margin: 10px 0;
 }
 
 input:focus, select:focus {
@@ -91,6 +114,7 @@ button:hover {
     border: 1px solid #cccccc;
     border-radius: 4px;
     background-color: #f1f1f1;
+    text-align: left;
 }
 
 /* Article Links */
@@ -109,4 +133,36 @@ button:hover {
 
 .article a:hover {
     text-decoration: underline;
+}
+
+
+.sub-website-box {
+    display: flex;
+    flex-direction: column; /* Stack image and heading vertically */
+    align-items: center;  /* Center content horizontally */
+    justify-content: center; /* Center vertically if needed */
+    text-align: center;
+    padding: 40px;  /* Increased padding for more space */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;  /* Add spacing around the box */
+    min-height: 300px; /* Ensure the box has enough height */
+    width: 100%; /* Allow the box to stretch to available width */
+    box-sizing: border-box; /* Include padding in box size */
+    max-width: 400px; /* Set a maximum width for better control */
+}
+
+.sub-website-box img {
+    max-width: 80%;  /* Limit image width to prevent overflow */
+    height: auto;
+    display: block;
+    margin-bottom: 20px;  /* More space between image and heading */
+}
+
+.sub-website-box h3 {
+    font-size: 1.8rem;  /* Increase heading size if needed */
+    color: #333;
+    margin-top: 15px;  /* Increased space between image and heading */
+    word-wrap: break-word;  /* Ensure text wraps inside the box */
 }

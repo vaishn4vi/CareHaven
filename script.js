@@ -26,7 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
             medicines_info: "Medicines Compositions & Allergy Info",
             health_checkups: "Health Checkups",
             doctor_registration: "Doctor Registration",
-            book_appointment: "Book an Appointment"
+            book_appointment: "Book an Appointment",
+            mental_health: "Mental Health Support and Resources",
+            diet_plans: "Personalized Diet Plans"
         },
         हिन्दी: {
             about_us: "हमारे बारे में",
@@ -39,11 +41,13 @@ document.addEventListener('DOMContentLoaded', function() {
             blood_centers: "रक्तदान और परीक्षण केंद्र",
             personal_reports: "व्यक्तिगत रिपोर्ट",
             water_tracker: "जल ट्रैकर + अनुस्मारक",
-            video_tutorials: "वीडियो ट्यूटोरियल",
+            video_tutorials: "वीडियो ट्यूटोरियाल",
             medicines_info: "दवाओं की संरचना और एलर्जी जानकारी",
             health_checkups: "स्वास्थ्य जांच",
             doctor_registration: "डॉक्टर पंजीकरण",
-            book_appointment: "अपॉइंटमेंट बुक करें"
+            book_appointment: "अपॉइंटमेंट बुक करें",
+            mental_health: "मानसिक स्वास्थ्य समर्थन और संसाधन",
+            diet_plans: "व्यक्तिगत आहार योजनाएं"
         },
         తెలుగు: {
             about_us: "మా గురించి",
@@ -60,7 +64,9 @@ document.addEventListener('DOMContentLoaded', function() {
             medicines_info: "మందుల సమ్మేళనాలు & అలర్జీ సమాచారం",
             health_checkups: "ఆరోగ్య పరీక్షలు",
             doctor_registration: "డాక్టర్ నమోదు",
-            book_appointment: "నియామకం బుక్ చేయండి"
+            book_appointment: "నియామకం బుక్ చేయండి",
+            mental_health: "మనోవ్యాధి మద్దతు మరియు వనరులు",
+            diet_plans: "వ్యక్తిగత ఆహార ప్రణాళికలు"
         },
         தமிழ்: {
             about_us: "எங்களை பற்றி",
@@ -77,7 +83,9 @@ document.addEventListener('DOMContentLoaded', function() {
             medicines_info: "மருந்துகளின் கலவைகள் மற்றும் ஒவ்வாமை தகவல்",
             health_checkups: "சுகாதார பரிசோதனைகள்",
             doctor_registration: "மருத்துவர் பதிவு",
-            book_appointment: "அபாயிண்ட்‌மேண்ட் பதிவு செய்க"
+            book_appointment: "அபாயிண்ட்‌மேண்ட் பதிவு செய்க",
+            mental_health: "மனரோக ஆதரவு மற்றும் வளங்கள்",
+            diet_plans: "தனிப்பட்ட உணவுக் கொள்கைகள்"
         },
         deutsch: {
             about_us: "Über uns",
@@ -94,7 +102,9 @@ document.addEventListener('DOMContentLoaded', function() {
             medicines_info: "Zusammensetzung von Medikamenten & Allergie Info",
             health_checkups: "Gesundheitsuntersuchungen",
             doctor_registration: "Arzt Registrierung",
-            book_appointment: "Termin buchen"
+            book_appointment: "Termin buchen",
+            mental_health: "Mentale Gesundheitsunterstützung und Ressourcen",
+            diet_plans: "Personalisierte Diätpläne"
         }
     };
 
@@ -115,15 +125,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Apply default language on load
+    applyTranslation(languageSelect.value);
+});
 
+  // Open chat box when user clicks on the chat icon
+  chatIcon.addEventListener('click', () => {
+    chatBox.style.display = 'block';
+});
 
-    // Keywords for various healthcare domains
-    const healthKeywords = {
-        "derma": ["Skin health is vital. A dermatologist can help you with acne, eczema, or skin cancer. Check our 'Dermatology' section for more info.", 
-                  "Are you having any skin issues? Visit the dermatologist section on our website.", 
-                  "It’s important to care for your skin. Visit the 'Derma' domain on our website for more guidance."],
-        // Add more keywords and responses as needed here
-    };
+// Close chat box when user clicks the close button
+closeChat.addEventListener('click', () => {
+    chatBox.style.display = 'none';
+});
+
+// Send user message when they click the "Send" button
+sendMessage.addEventListener('click', () => {
+    let message = userInput.value.trim();
+    if (message) {
+        message = checkSpelling(message); // Check spelling before sending
+        addMessageToChat('User', message);  // Display user message in the chat
+        userInput.value = '';  // Clear input field
+
+        // Process user message for keywords
+        let recognizedKeyword = recognizeKeyword(message);
+        if (recognizedKeyword) {
+            const responses = healthKeywords[recognizedKeyword];
+            const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+            addMessageToChat('AI Assistant', randomResponse);  // Display random predefined answer
+        } else {
+            // If no keyword matches, reply with a default message
+            addMessageToChat('AI Assistant', 'Sorry, I didn’t understand your message. Please try again.');
+        }
+    }
 
     // Open chat box when user clicks on the chat icon
     chatIcon.addEventListener('click', () => {

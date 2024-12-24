@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="water_tracker.css">
+    <link rel="stylesheet" href="/css/water_tracker.css">
 
     <title>Daily Drink Water Goal using JavaScript</title>
     <style>
@@ -118,11 +118,20 @@
             text-align: left;
         }
 
-        .illustration img {
-            width: 100px;
-            height: auto;
-            margin: 10px;
+        .illustration {
+            display: flex; /* Use flexbox to align items horizontally */
+            justify-content: center; /* Center the images horizontally */
+            align-items: center; /* Center the images vertically */
+            gap: 10px; /* Add some space between the images */
+            margin-top: 20px;
         }
+
+        .illustration img {
+            width: 100px; /* Set a fixed width for all images */
+            height: 100px; /* Set a fixed height for all images */
+            object-fit: cover; /* Ensure the images cover the space without distorting */
+        }
+
 
         #successMessage {
             margin-top: 20px;
@@ -130,12 +139,22 @@
             font-size: 20px;
             display: none; /* Hidden by default */
         }
+
+        /* New container for entire section */
+        .water-tracker-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 
 <body>
     <div class="wrapper">
-        <div class="container">
+        <div class="water-tracker-box">
             <h1>Drink Water Tracker</h1>
             <h3 id="goal">Goal: 2 Liters</h3>
 
@@ -205,123 +224,125 @@
 
             <!-- Illustrations/Images -->
             <div class="illustration">
-                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\wotah.jpg" alt="Water">
-                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\diet nutrition lifestyle.jpg" alt="Diet Nutrition">
-                <img src="C:\Users\VAISHNAVI\Desktop\carehaven\images\drink.jpg" alt="Drink">
+                <img src="/images/wotah.jpg" alt="Water" style="">
+                <img src="/images/diet nutrition lifestyle.jpg" alt="Diet Nutrition">
+                <img src="/images/drink.jpg" alt="Drink">
             </div>
         </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            let totalWaterDrunk = 0;
+    let totalWaterDrunk = 0; // Track the total water drunk
 
-            // Handle glass click events
-            const glasses = document.querySelectorAll('.cup');
-            glasses.forEach((glass, index) => {
-                glass.addEventListener('click', () => {
-                    totalWaterDrunk = (index + 1) * 250; // Each glass is 250ml
+    // Handle glass click events
+    const glasses = document.querySelectorAll('.cup');
+    glasses.forEach((glass, index) => {
+        glass.addEventListener('click', () => {
+            // Increment totalWaterDrunk by 250ml for each glass clicked
+            totalWaterDrunk += 250;
 
-                    // Fill the clicked glass and previous ones
-                    glasses.forEach((g, i) => {
-                        if (i <= index) {
-                            g.classList.add('full');
-                        } else {
-                            g.classList.remove('full');
-                        }
-                    });
-
-                    // Update remaining water
-                    const goal = 2000; // 2 liters goal
-                    const remained = goal - totalWaterDrunk;
-                    document.getElementById('liters').innerText = (remained / 1000).toFixed(2);
-
-                    // Update percentage
-                    const percentage = (totalWaterDrunk / goal) * 100;
-                    document.getElementById('percentage').style.height = `${percentage}%`;
-
-                    // Show success message if goal is reached
-                    if (totalWaterDrunk >= goal) {
-                        document.getElementById('successMessage').style.display = 'block';
-                    } else {
-                        document.getElementById('successMessage').style.display = 'none'; // Hide message if goal is not reached
-                    }
-                });
-            });
-
-            // Water intake research data based on user input
-            document.getElementById('calculate').addEventListener('click', () => {
-                const age = parseInt(document.getElementById('age').value);
-                const gender = document.getElementById('gender').value;
-                const height = parseFloat(document.getElementById('height').value);
-                const weight = parseFloat(document.getElementById('weight').value);
-                const requirement = document.getElementById('requirement').value;
-
-                let advice = '';
-
-                // Age-based advice
-                if (age < 18) {
-                    advice += 'As a minor, ensure you stay hydrated throughout the day. ';
-                } else if (age >= 18 && age <= 50) {
-                    advice += 'Make sure to drink enough water to support your daily activities. ';
+            // Fill the clicked glass and previous ones
+            glasses.forEach((g, i) => {
+                if (i <= index) {
+                    g.classList.add('full');
                 } else {
-                    advice += 'Stay hydrated to maintain your health as you age. ';
+                    g.classList.remove('full');
                 }
-
-                // Gender-based advice
-                if (gender === 'male') {
-                    advice += 'Men generally require more water, so keep sipping! ';
-                } else if (gender === 'female') {
-                    advice += 'Women should also stay hydrated for overall health. ';
-                }
-
-                // Height and weight based advice
-                const waterIntake = (weight / 30); // Rough estimate: 1 liter per 30 kg
-                advice += `You should aim for around ${waterIntake.toFixed(2)} liters of water daily based on your weight. `;
-
-                // Requirement-based advice
-                switch (requirement) {
-                    case 'healthy skin':
-                        advice += 'Drinking enough water can help improve your skin health.';
-                        break;
-                    case 'slim body':
-                        advice += 'Hydration is key to weight loss and maintaining a slim figure.';
-                        break;
-                    case 'healthy hair':
-                        advice += 'Water intake is crucial for maintaining healthy hair.';
-                        break;
-                    case 'fitness':
-                        advice += 'Stay hydrated to enhance your performance and recovery during workouts.';
-                        break;
-                    case 'increase height':
-                        advice += 'Staying hydrated helps support healthy growth and development.';
-                        break;
-                    default:
-                        advice += 'Keep up the great work staying hydrated!';
-                }
-
-                document.getElementById('personalizedAdvice').innerText = advice;
             });
 
-            // Set water reminder functionality
-            document.getElementById('setReminder').addEventListener('click', () => {
-                alert("Reminder set! Don't forget to drink water regularly!");
-            });
+            // Update remaining water
+            const goal = 2000; // 2 liters goal
+            const remained = goal - totalWaterDrunk;
+            document.getElementById('liters').innerText = (remained / 1000).toFixed(2);
 
-            // Display research information
-            const researchInfo = `
-                <h3>Why is water important?</h3>
-                <p>Water is essential for maintaining bodily functions, including:</p>
-                <ul>
-                    <li>Regulating body temperature</li>
-                    <li>Transporting nutrients and oxygen</li>
-                    <li>Removing waste products</li>
-                    <li>Supporting cell and organ function</li>
-                </ul>
-                <p>Drinking an adequate amount of water daily is crucial for overall health.</p>
-            `;
-            document.getElementById('researchInfo').innerHTML = researchInfo;
+            // Update percentage
+            const percentage = (totalWaterDrunk / goal) * 100;
+            document.getElementById('percentage').style.height = `${percentage}%`;
+
+            // Show success message if goal is reached
+            if (totalWaterDrunk >= goal) {
+                document.getElementById('successMessage').style.display = 'block';
+            } else {
+                document.getElementById('successMessage').style.display = 'none'; // Hide message if goal is not reached
+            }
         });
+    });
+
+    // Water intake research data based on user input
+    document.getElementById('calculate').addEventListener('click', () => {
+        const age = parseInt(document.getElementById('age').value);
+        const gender = document.getElementById('gender').value;
+        const height = parseFloat(document.getElementById('height').value);
+        const weight = parseFloat(document.getElementById('weight').value);
+        const requirement = document.getElementById('requirement').value;
+
+        let advice = '';
+
+        // Age-based advice
+        if (age < 18) {
+            advice += 'As a minor, ensure you stay hydrated throughout the day. ';
+        } else if (age >= 18 && age <= 50) {
+            advice += 'Make sure to drink enough water to support your daily activities. ';
+        } else {
+            advice += 'Stay hydrated to maintain your health as you age. ';
+        }
+
+        // Gender-based advice
+        if (gender === 'male') {
+            advice += 'Men generally require more water, so keep sipping! ';
+        } else if (gender === 'female') {
+            advice += 'Women should also stay hydrated for overall health. ';
+        }
+
+        // Height and weight-based advice
+        const waterIntake = (weight / 30); // Rough estimate: 1 liter per 30 kg
+        advice += `You should aim for around ${waterIntake.toFixed(2)} liters of water daily based on your weight. `;
+
+        // Requirement-based advice
+        switch (requirement) {
+            case 'healthy skin':
+                advice += 'Drinking enough water can help improve your skin health.';
+                break;
+            case 'slim body':
+                advice += 'Hydration is key to weight loss and maintaining a slim figure.';
+                break;
+            case 'healthy hair':
+                advice += 'Water intake is crucial for maintaining healthy hair.';
+                break;
+            case 'fitness':
+                advice += 'Stay hydrated to enhance your performance and recovery during workouts.';
+                break;
+            case 'increase height':
+                advice += 'Staying hydrated helps support healthy growth and development.';
+                break;
+            default:
+                advice += 'Keep up the great work staying hydrated!';
+        }
+
+        document.getElementById('personalizedAdvice').innerText = advice;
+    });
+
+    // Set water reminder functionality
+    document.getElementById('setReminder').addEventListener('click', () => {
+        alert("Reminder set! Don't forget to drink water regularly!");
+    });
+
+    // Display research information
+    const researchInfo = `
+        <h3>Why is water important?</h3>
+        <p>Water is essential for maintaining bodily functions, including:</p>
+        <ul>
+            <li>Regulating body temperature</li>
+            <li>Transporting nutrients and oxygen</li>
+            <li>Removing waste products</li>
+            <li>Supporting cell and organ function</li>
+        </ul>
+        <p>Drinking an adequate amount of water daily is crucial for overall health.</p>
+    `;
+    document.getElementById('researchInfo').innerHTML = researchInfo;
+});
+
     </script>
 </body>
 
