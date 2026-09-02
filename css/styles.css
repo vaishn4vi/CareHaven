@@ -1,0 +1,89 @@
+/* CareHaven — legacy page-specific overrides (chat widget only; header/nav/grid moved to main.css) */
+
+.sub-website-box a { display: block; }
+.sub-website-box img { max-width: 56px; margin: 0 auto 12px; }
+.sub-website-box h3 { font-size: 1.05rem; margin-bottom: 6px; }
+
+/* Chat Assistant */
+.chat-assistant {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1500;
+}
+
+.chat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--ch-primary, #0e8a7d);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--ch-shadow-md, 0 8px 24px rgba(0,0,0,0.2));
+}
+.chat-icon img { width: 30px; height: 30px; filter: brightness(0) invert(1); }
+
+.chat-box {
+    display: none;
+    position: fixed;
+    bottom: 92px;
+    right: 20px;
+    width: 320px;
+    max-width: calc(100vw - 40px);
+    background-color: var(--ch-surface, #fff);
+    border: 1px solid var(--ch-border, #ccc);
+    border-radius: 14px;
+    box-shadow: var(--ch-shadow-lg, 0 8px 24px rgba(0,0,0,0.2));
+    z-index: 1501;
+    overflow: hidden;
+}
+.chat-box.open { display: flex; flex-direction: column; }
+
+.chat-header {
+    padding: 12px 14px;
+    background: var(--ch-primary, #0e8a7d);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.chat-header h4 { margin: 0; font-size: 0.95rem; }
+.chat-header button { background: none; border: none; color: #fff; font-size: 1.2rem; cursor: pointer; line-height: 1; }
+
+.chat-body {
+    padding: 14px;
+    max-height: 300px;
+    overflow-y: auto;
+    font-size: 0.86rem;
+    line-height: 1.45;
+    color: var(--ch-text, #333);
+}
+.chat-msg { margin-bottom: 10px; }
+.chat-msg .who { font-weight: 700; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ch-text-muted, #888); margin-bottom: 2px; }
+.chat-msg.user .who { color: var(--ch-primary, #0e8a7d); }
+
+.chat-input {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    border-top: 1px solid var(--ch-border, #ccc);
+}
+
+.chat-input input {
+    flex-grow: 1;
+    padding: 9px 10px;
+    border: 1px solid var(--ch-border, #ccc);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    outline: none;
+    background: var(--ch-surface, #fff);
+    color: var(--ch-text, #333);
+}
+
+@media (max-width: 500px) {
+    .chat-box { right: 10px; bottom: 82px; }
+    .chat-assistant { right: 10px; bottom: 10px; }
+}

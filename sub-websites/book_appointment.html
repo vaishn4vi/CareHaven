@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment — CareHaven</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <section class="ch-hero" style="padding:36px 0;">
+        <div class="ch-container">
+            <h1>Book an Appointment</h1>
+            <p>Choose a doctor or a checkup package, pick a date and time, and you're set.</p>
+        </div>
+    </section>
+
+    <section class="ch-section" style="padding-top:12px;">
+        <div class="ch-container ch-grid ch-grid-2" style="align-items:flex-start;">
+            <div class="ch-card">
+                <h3>New Appointment</h3>
+                <form id="apptForm" novalidate>
+                    <div class="ch-field">
+                        <label for="patientName">Your Name *</label>
+                        <input type="text" id="patientName" class="ch-input" required>
+                        <div class="ch-error-text">Please enter your name.</div>
+                    </div>
+                    <div class="ch-field">
+                        <label for="doctorSelect">Doctor / Package *</label>
+                        <select id="doctorSelect" class="ch-select" required></select>
+                        <div class="ch-error-text">Please choose a doctor or package.</div>
+                    </div>
+                    <div class="ch-form-row">
+                        <div class="ch-field">
+                            <label for="apptDate">Date *</label>
+                            <input type="date" id="apptDate" class="ch-input" required>
+                            <div class="ch-error-text">Choose a valid upcoming date.</div>
+                        </div>
+                        <div class="ch-field">
+                            <label for="apptTime">Time *</label>
+                            <input type="time" id="apptTime" class="ch-input" required>
+                            <div class="ch-error-text">Choose a time.</div>
+                        </div>
+                    </div>
+                    <div class="ch-field">
+                        <label for="reason">Reason for Visit</label>
+                        <textarea id="reason" class="ch-textarea" rows="3" placeholder="Optional notes for the doctor"></textarea>
+                    </div>
+                    <button type="submit" class="ch-btn ch-btn-primary ch-btn-block">Confirm Appointment</button>
+                </form>
+            </div>
+
+            <div>
+                <div class="ch-card ch-mb-lg">
+                    <h3>Upcoming Appointments</h3>
+                    <div id="apptEmpty" class="ch-empty-state">
+                        <div class="ch-empty-icon">🗓️</div>
+                        <p>No appointments booked yet.</p>
+                    </div>
+                    <div id="apptList"></div>
+                </div>
+
+                <div class="ch-card">
+                    <h3>Popular Packages</h3>
+                    <div class="ch-grid" style="grid-template-columns:1fr; gap:12px;">
+                        <div class="ch-card" style="background:var(--ch-surface-alt); padding:14px;">
+                            <strong>Cardiology Health Check</strong>
+                            <p class="ch-muted" style="font-size:0.85rem; margin:4px 0 0;">ECG, TMT and a full heart health panel.</p>
+                        </div>
+                        <div class="ch-card" style="background:var(--ch-surface-alt); padding:14px;">
+                            <strong>Diabetes Screening</strong>
+                            <p class="ch-muted" style="font-size:0.85rem; margin:4px 0 0;">Blood sugar, HbA1c and related markers.</p>
+                        </div>
+                        <div class="ch-card" style="background:var(--ch-surface-alt); padding:14px;">
+                            <strong>Cancer Screening</strong>
+                            <p class="ch-muted" style="font-size:0.85rem; margin:4px 0 0;">A recommended panel for early detection.</p>
+                        </div>
+                    </div>
+                    <p class="ch-hint ch-mt-lg">Select a package from the dropdown on the left to book it like an appointment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>window.CH_BASE = "../"; window.CH_PAGE = "book_appointment";</script>
+    <script src="../js/site.js"></script>
+    <script src="../js/book_appointment.js"></script>
+</body>
+</html>

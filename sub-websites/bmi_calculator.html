@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator — CareHaven</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/bmi-style.css">
+</head>
+<body>
+    <section class="ch-hero" style="padding:36px 0;">
+        <div class="ch-container">
+            <h1>BMI Calculator</h1>
+            <p>Calculate your Body Mass Index and track how it changes over time.</p>
+        </div>
+    </section>
+
+    <section class="ch-section" style="padding-top:20px;">
+        <div class="ch-container ch-grid ch-grid-2" style="align-items:flex-start;">
+            <div class="ch-card">
+                <div class="ch-field">
+                    <label for="unit">Units</label>
+                    <select id="unit" class="ch-select">
+                        <option value="metric">Metric (kg, cm)</option>
+                        <option value="us">US (lbs, ft/in)</option>
+                    </select>
+                </div>
+
+                <div id="metric-fields">
+                    <div class="ch-form-row">
+                        <div class="ch-field">
+                            <label for="weight-metric">Weight (kg)</label>
+                            <input type="number" id="weight-metric" class="ch-input" min="1" step="0.1" placeholder="e.g. 68">
+                        </div>
+                        <div class="ch-field">
+                            <label for="height-metric">Height (cm)</label>
+                            <input type="number" id="height-metric" class="ch-input" min="1" step="0.1" placeholder="e.g. 170">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="us-fields" style="display:none;">
+                    <div class="ch-form-row">
+                        <div class="ch-field">
+                            <label for="weight-us">Weight (lbs)</label>
+                            <input type="number" id="weight-us" class="ch-input" min="1" step="0.1" placeholder="e.g. 150">
+                        </div>
+                        <div class="ch-field">
+                            <label for="height-feet">Height — feet</label>
+                            <input type="number" id="height-feet" class="ch-input" min="0" step="1" placeholder="5">
+                        </div>
+                        <div class="ch-field">
+                            <label for="height-inches">Height — inches</label>
+                            <input type="number" id="height-inches" class="ch-input" min="0" max="11" step="1" placeholder="7">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ch-form-row">
+                    <div class="ch-field">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" class="ch-input" min="1" max="120" placeholder="e.g. 28">
+                    </div>
+                    <div class="ch-field">
+                        <label for="gender">Gender</label>
+                        <select id="gender" class="ch-select">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other / prefer not to say</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="ch-field" id="errorBox" class="ch-error-text"></div>
+
+                <div class="ch-flex">
+                    <button class="ch-btn ch-btn-primary" id="calcBtn">Calculate BMI</button>
+                    <button class="ch-btn ch-btn-ghost" id="clearHistoryBtn">Clear History</button>
+                </div>
+
+                <div id="resultWrap" style="display:none;" class="ch-mt-lg">
+                    <div class="ch-flex" style="justify-content:space-between; align-items:baseline;">
+                        <h2 id="bmiResult" style="margin:0;"></h2>
+                        <span id="bmiBadge" class="ch-badge"></span>
+                    </div>
+                    <div class="ch-progress ch-mt-lg" aria-hidden="true">
+                        <div id="bmiBar"></div>
+                    </div>
+                    <div class="ch-flex" style="justify-content:space-between; font-size:0.75rem;" class="ch-muted">
+                        <span>15</span><span>18.5</span><span>25</span><span>30</span><span>40+</span>
+                    </div>
+                    <p id="weightAdjustment" class="ch-muted ch-mt-lg"></p>
+                </div>
+            </div>
+
+            <div class="ch-card">
+                <h3>Your BMI History</h3>
+                <p class="ch-muted" style="font-size:0.85rem;">Saved on this device only (not sent anywhere).</p>
+                <div id="historyEmpty" class="ch-empty-state">
+                    <div class="ch-empty-icon">📈</div>
+                    <p>No entries yet. Calculate your BMI to start tracking.</p>
+                </div>
+                <table class="ch-table" id="historyTable" style="display:none;">
+                    <thead><tr><th>Date</th><th>BMI</th><th>Category</th><th></th></tr></thead>
+                    <tbody id="historyBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script>window.CH_BASE = "../"; window.CH_PAGE = "bmi";</script>
+    <script src="../js/site.js"></script>
+    <script src="../js/bmi_calculator.js"></script>
+</body>
+</html>

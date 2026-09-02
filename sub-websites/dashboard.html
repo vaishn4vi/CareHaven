@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard — CareHaven</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <section class="ch-hero" style="padding:36px 0;">
+        <div class="ch-container">
+            <h1>My Dashboard</h1>
+            <p>A quick snapshot of everything you've been tracking on CareHaven.</p>
+        </div>
+    </section>
+
+    <section class="ch-section" style="padding-top:12px;">
+        <div class="ch-container">
+            <div class="ch-grid ch-grid-4 ch-mb-lg">
+                <div class="ch-card">
+                    <div class="ch-muted" style="font-size:0.78rem; text-transform:uppercase; font-weight:700;">Latest BMI</div>
+                    <div id="dashBmi" style="font-size:1.6rem; font-weight:700; margin-top:6px;">—</div>
+                    <a href="bmi_calculator.html" class="ch-btn ch-btn-sm ch-btn-outline ch-mt-lg">Open BMI Calculator</a>
+                </div>
+                <div class="ch-card">
+                    <div class="ch-muted" style="font-size:0.78rem; text-transform:uppercase; font-weight:700;">Today's Water</div>
+                    <div id="dashWater" style="font-size:1.6rem; font-weight:700; margin-top:6px;">—</div>
+                    <a href="water_tracker.html" class="ch-btn ch-btn-sm ch-btn-outline ch-mt-lg">Open Water Tracker</a>
+                </div>
+                <div class="ch-card">
+                    <div class="ch-muted" style="font-size:0.78rem; text-transform:uppercase; font-weight:700;">Last Mood Check-in</div>
+                    <div id="dashMood" style="font-size:1.6rem; font-weight:700; margin-top:6px;">—</div>
+                    <a href="mental_health.html" class="ch-btn ch-btn-sm ch-btn-outline ch-mt-lg">Open Mental Health</a>
+                </div>
+                <div class="ch-card">
+                    <div class="ch-muted" style="font-size:0.78rem; text-transform:uppercase; font-weight:700;">Health Records</div>
+                    <div id="dashReports" style="font-size:1.6rem; font-weight:700; margin-top:6px;">—</div>
+                    <a href="personal_reports.html" class="ch-btn ch-btn-sm ch-btn-outline ch-mt-lg">Open Records</a>
+                </div>
+            </div>
+
+            <div class="ch-grid ch-grid-2">
+                <div class="ch-card">
+                    <h3>Upcoming Appointments</h3>
+                    <div id="dashApptsEmpty" class="ch-empty-state">
+                        <div class="ch-empty-icon">🗓️</div>
+                        <p>Nothing booked yet.</p>
+                    </div>
+                    <div id="dashAppts"></div>
+                    <a href="book_appointment.html" class="ch-btn ch-btn-primary ch-mt-lg">Book an Appointment</a>
+                </div>
+                <div class="ch-card">
+                    <h3>Water Streak</h3>
+                    <div id="dashStreak" style="font-size:2rem; font-weight:700; margin:10px 0;">0 days</div>
+                    <p class="ch-muted" style="font-size:0.85rem;">Days in a row you've hit your hydration goal.</p>
+                    <h3 class="ch-mt-lg">BMI Trend</h3>
+                    <div id="bmiTrend" class="ch-muted" style="font-size:0.85rem;">No BMI history yet.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>window.CH_BASE = "../"; window.CH_PAGE = "dashboard";</script>
+    <script src="../js/site.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

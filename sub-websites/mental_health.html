@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health — CareHaven</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <section class="ch-hero" style="padding:36px 0;">
+        <div class="ch-container">
+            <h1>Mental Health &amp; Well-Being</h1>
+            <p>A quiet space to check in with yourself, breathe, and find support when you need it.</p>
+        </div>
+    </section>
+
+    <section class="ch-section" style="padding-top:12px;">
+        <div class="ch-container">
+            <div class="ch-emergency ch-mb-lg">
+                <strong>If you're in crisis or thinking about harming yourself,</strong> please reach out right away: call your local emergency number (112 in much of the world, 911 in the US, 108 for ambulance in India), or a crisis line such as 988 (US Suicide &amp; Crisis Lifeline). You deserve support, and you don't have to go through this alone.
+            </div>
+
+            <div class="ch-grid ch-grid-2" style="align-items:flex-start;">
+                <div class="ch-card">
+                    <h3>How are you feeling today?</h3>
+                    <div class="ch-flex ch-flex-wrap" id="moodPicker" style="font-size:1.8rem; margin:14px 0;">
+                        <button class="ch-icon-btn" style="width:52px;height:52px;font-size:1.6rem;" data-mood="5" title="Great">😄</button>
+                        <button class="ch-icon-btn" style="width:52px;height:52px;font-size:1.6rem;" data-mood="4" title="Good">🙂</button>
+                        <button class="ch-icon-btn" style="width:52px;height:52px;font-size:1.6rem;" data-mood="3" title="Okay">😐</button>
+                        <button class="ch-icon-btn" style="width:52px;height:52px;font-size:1.6rem;" data-mood="2" title="Low">😔</button>
+                        <button class="ch-icon-btn" style="width:52px;height:52px;font-size:1.6rem;" data-mood="1" title="Struggling">😢</button>
+                    </div>
+                    <div class="ch-field">
+                        <label for="moodNote">Add a note (optional)</label>
+                        <textarea id="moodNote" class="ch-textarea" rows="3" placeholder="What's on your mind?"></textarea>
+                    </div>
+                    <button class="ch-btn ch-btn-primary" id="saveMoodBtn">Save Check-in</button>
+
+                    <h4 class="ch-mt-lg">Recent check-ins</h4>
+                    <div id="moodEmpty" class="ch-empty-state">
+                        <div class="ch-empty-icon">📝</div>
+                        <p>No check-ins yet — your first one starts your journal.</p>
+                    </div>
+                    <div id="moodList"></div>
+                </div>
+
+                <div>
+                    <div class="ch-card ch-mb-lg ch-center">
+                        <h3>Take a breathing break</h3>
+                        <p class="ch-muted" style="font-size:0.85rem;">A simple guided box-breathing exercise — 4 seconds in, 4 hold, 4 out, 4 hold.</p>
+                        <div id="breathCircle" style="width:140px;height:140px;border-radius:50%;background:var(--ch-primary-light);border:3px solid var(--ch-primary);margin:20px auto;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--ch-primary-dark);transition:transform 4s ease;">Start</div>
+                        <button class="ch-btn ch-btn-primary" id="breathBtn">Begin Exercise</button>
+                    </div>
+
+                    <div class="ch-card">
+                        <h3>Support &amp; resources</h3>
+                        <ul style="padding-left:20px; font-size:0.9rem; color:var(--ch-text-muted);">
+                            <li>Talking to a trusted friend, family member, or counselor can help, even when it feels hard to start.</li>
+                            <li>Regular sleep, movement and sunlight all support mood, alongside — not instead of — professional care when needed.</li>
+                            <li>If low mood, anxiety or stress are affecting your daily life, a doctor or licensed therapist can help figure out next steps.</li>
+                        </ul>
+                        <a href="book_appointment.html" class="ch-btn ch-btn-outline ch-btn-block ch-mt-lg">Book a Session With a Professional</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>window.CH_BASE = "../"; window.CH_PAGE = "mental_health";</script>
+    <script src="../js/site.js"></script>
+    <script src="../js/mental_health.js"></script>
+</body>
+</html>

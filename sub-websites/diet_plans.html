@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diet Plans — CareHaven</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .diet-selection { display: flex; gap: 14px; flex-wrap: wrap; margin: 16px 0; }
+    .diet-option { flex: 1; min-width: 140px; text-align: center; padding: 18px 12px; border-radius: var(--ch-radius-md); border: 2px solid var(--ch-border); cursor: pointer; transition: border-color .15s ease, background .15s ease; background: var(--ch-surface); }
+    .diet-option i { font-size: 1.6rem; display: block; margin-bottom: 8px; color: var(--ch-primary); }
+    .diet-option.selected { border-color: var(--ch-primary); background: var(--ch-primary-light); }
+    .macro-section ul { list-style: none; padding: 0; margin: 12px 0; font-size: 0.9rem; }
+    .macro-section li { margin-bottom: 6px; }
+    .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
+    .dot.yellow { background: #e0a419; } .dot.blue { background: #3183c8; } .dot.purple { background: #8a5bd6; }
+    .allergy-options { display: flex; gap: 16px; flex-wrap: wrap; font-size: 0.9rem; }
+    .allergy-options label { display: flex; align-items: center; gap: 6px; }
+    .meal-item { background: var(--ch-surface-alt); border-radius: var(--ch-radius-sm); padding: 14px; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <section class="ch-hero" style="padding:36px 0;">
+    <div class="ch-container">
+      <h1>Personalized Diet Plans</h1>
+      <p>Pick a diet style, set your calorie target, and get a sample meal plan in seconds.</p>
+    </div>
+  </section>
+
+  <section class="ch-section" style="padding-top:12px;">
+    <div class="ch-container ch-card" style="max-width:760px;">
+      <h2 style="font-size:1.2rem;">Select Your Preferred Diet</h2>
+      <div class="diet-selection">
+        <div class="diet-option selected" data-diet="vegetarian" onclick="selectDiet('vegetarian')">
+          <i class="fas fa-leaf"></i>
+          <span>Vegetarian</span>
+        </div>
+        <div class="diet-option" data-diet="non-vegetarian" onclick="selectDiet('non-vegetarian')">
+          <i class="fas fa-drumstick-bite"></i>
+          <span>Non-Vegetarian</span>
+        </div>
+        <div class="diet-option" data-diet="jain" onclick="selectDiet('jain')">
+          <i class="fas fa-seedling"></i>
+          <span>Jain</span>
+        </div>
+      </div>
+
+      <div class="ch-form-row ch-mt-lg">
+        <div class="ch-field">
+          <label for="calories">Daily calories</label>
+          <input type="number" id="calories" class="ch-input" value="1800">
+        </div>
+        <div class="ch-field">
+          <label for="meals">Number of meals</label>
+          <select id="meals" class="ch-select">
+            <option value="1">1 meal</option>
+            <option value="2">2 meals</option>
+            <option value="3" selected>3 meals</option>
+            <option value="4">4 meals</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="macro-section">
+        <ul>
+          <li><span class="dot yellow"></span>At least 90g Carbs</li>
+          <li><span class="dot blue"></span>At least 40g Fat</li>
+          <li><span class="dot purple"></span>At least 90g Protein</li>
+        </ul>
+      </div>
+
+      <div class="allergy-section ch-mt-lg">
+        <h3 style="font-size:1rem;">Allergies</h3>
+        <p class="ch-muted" style="font-size:0.85rem;">Select any allergies you have — matching meals will be excluded.</p>
+        <div class="allergy-options ch-mt-lg">
+          <label><input type="checkbox" value="nuts"> Nuts</label>
+          <label><input type="checkbox" value="dairy"> Dairy</label>
+          <label><input type="checkbox" value="gluten"> Gluten</label>
+          <label><input type="checkbox" value="shellfish"> Shellfish</label>
+          <label><input type="checkbox" value="soy"> Soy</label>
+        </div>
+      </div>
+
+      <button class="ch-btn ch-btn-primary ch-btn-block ch-mt-lg" onclick="generateDietPlan()">Generate Diet Plan</button>
+
+      <section id="diet-plan" class="ch-mt-lg">
+        <h2 style="font-size:1.15rem;">Your Customized Diet Plan</h2>
+        <div id="meal-plan" class="ch-mt-lg"><!-- Diet Plan will be generated here --></div>
+      </section>
+    </div>
+  </section>
+
+  <script>window.CH_BASE = "../"; window.CH_PAGE = "diet";</script>
+  <script src="../js/site.js"></script>
+  <script src="../js/diet.js"></script>
+</body>
+</html>

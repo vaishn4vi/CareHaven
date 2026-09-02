@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Women's Health — CareHaven</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <section class="ch-hero" style="padding:36px 0;">
+        <div class="ch-container">
+            <h1>Women's Health</h1>
+            <p>A short questionnaire to point you toward relevant, general health information.</p>
+        </div>
+    </section>
+
+    <section class="ch-section" style="padding-top:12px;">
+        <div class="ch-container ch-grid ch-grid-2" style="align-items:flex-start;">
+            <div class="ch-card">
+                <h3>Quick Questionnaire</h3>
+                <form id="healthForm" novalidate>
+                    <div class="ch-form-row">
+                        <div class="ch-field">
+                            <label for="age">Age *</label>
+                            <input type="number" id="age" class="ch-input" required>
+                        </div>
+                        <div class="ch-field">
+                            <label for="pregnant">Are you pregnant? *</label>
+                            <select id="pregnant" class="ch-select" required>
+                                <option value="" disabled selected>Select…</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ch-form-row">
+                        <div class="ch-field">
+                            <label for="cycleDuration">Cycle length (days)</label>
+                            <input type="number" id="cycleDuration" class="ch-input">
+                        </div>
+                        <div class="ch-field">
+                            <label for="gapBetween">Gap between periods (days)</label>
+                            <input type="number" id="gapBetween" class="ch-input">
+                        </div>
+                    </div>
+                    <div class="ch-field">
+                        <label for="symptoms">Symptoms experienced</label>
+                        <input type="text" id="symptoms" class="ch-input" placeholder="e.g. cramps, mood swings">
+                    </div>
+                    <div class="ch-field">
+                        <label for="conditions">Pre-existing conditions</label>
+                        <input type="text" id="conditions" class="ch-input" placeholder="e.g. PCOS, Endometriosis">
+                    </div>
+                    <div class="ch-field">
+                        <label for="lifestyle">Lifestyle</label>
+                        <select id="lifestyle" class="ch-select">
+                            <option value="" disabled selected>Select…</option>
+                            <option value="active">Active</option>
+                            <option value="sedentary">Sedentary</option>
+                            <option value="balanced diet">Balanced Diet</option>
+                            <option value="special diet">Special Diet</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="ch-btn ch-btn-primary ch-btn-block">Get General Health Information</button>
+                </form>
+            </div>
+
+            <div class="ch-card">
+                <h3>Your Results</h3>
+                <p class="ch-hint">This is general information, not a diagnosis — please discuss anything concerning with a doctor or gynecologist.</p>
+                <div id="results" style="font-size:0.9rem; white-space:pre-wrap;"></div>
+            </div>
+        </div>
+    </section>
+
+    <script>window.CH_BASE = "../"; window.CH_PAGE = "women_health";</script>
+    <script src="../js/site.js"></script>
+    <script src="../js/women_health.js"></script>
+</body>
+</html>

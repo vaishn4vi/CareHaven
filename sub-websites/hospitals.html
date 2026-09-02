@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospitals Around Me — CareHaven</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <section class="ch-hero" style="padding:36px 0;">
+        <div class="ch-container">
+            <h1>Find Nearby Hospitals</h1>
+            <p>Search by city, or let us sort by distance using your location.</p>
+        </div>
+    </section>
+
+    <section class="ch-section" style="padding-top:12px;">
+        <div class="ch-container">
+            <div class="ch-card ch-mb-lg">
+                <div class="ch-flex ch-flex-wrap">
+                    <input type="text" id="citySearch" class="ch-input" placeholder="Search by city (e.g. Chennai, Mumbai)" style="max-width:280px;">
+                    <button class="ch-btn ch-btn-primary" id="searchBtn">Search</button>
+                    <button class="ch-btn ch-btn-outline" id="useLocationBtn">📍 Use My Location</button>
+                </div>
+                <p id="locStatus" class="ch-muted" style="font-size:0.82rem; margin-top:10px;"></p>
+            </div>
+
+            <div id="hospitalsList" class="ch-grid ch-grid-3"></div>
+        </div>
+    </section>
+
+    <script>window.CH_BASE = "../"; window.CH_PAGE = "hospitals";</script>
+    <script src="../js/site.js"></script>
+    <script src="../js/hospitals.js"></script>
+</body>
+</html>

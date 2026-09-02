@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Tutorials — CareHaven</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <section class="ch-hero" style="padding:36px 0;">
+        <div class="ch-container">
+            <h1>Exercise Video Finder</h1>
+            <p>Browse popular workout categories or search for something specific.</p>
+        </div>
+    </section>
+
+    <section class="ch-section" style="padding-top:12px;">
+        <div class="ch-container">
+            <div class="ch-card ch-mb-lg">
+                <div class="ch-flex ch-flex-wrap">
+                    <input type="text" id="videoSearch" class="ch-input" placeholder="e.g. beginner yoga, HIIT for abs…" style="max-width:320px;">
+                    <button class="ch-btn ch-btn-primary" id="videoSearchBtn">Search on YouTube</button>
+                </div>
+                <p class="ch-hint ch-mt-lg">Opens results in a new tab — CareHaven doesn't host or stream videos directly.</p>
+            </div>
+
+            <h3>Popular categories</h3>
+            <div class="ch-grid ch-grid-4 ch-mt-lg" id="categoryGrid"></div>
+        </div>
+    </section>
+
+    <script>window.CH_BASE = "../"; window.CH_PAGE = "videos";</script>
+    <script src="../js/site.js"></script>
+    <script src="../js/video_tutorials.js"></script>
+</body>
+</html>

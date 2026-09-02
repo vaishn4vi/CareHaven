@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Health Records — CareHaven</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <section class="ch-hero" style="padding:36px 0;">
+        <div class="ch-container">
+            <h1>Personal Health Records</h1>
+            <p>Keep medical history, test results and notes organized and accessible whenever you need them.</p>
+        </div>
+    </section>
+
+    <section class="ch-section" style="padding-top:12px;">
+        <div class="ch-container ch-grid ch-grid-2" style="align-items:flex-start;">
+            <div class="ch-card">
+                <h3>Add a Record</h3>
+                <form id="reportForm" novalidate>
+                    <div class="ch-field">
+                        <label for="title">Title *</label>
+                        <input type="text" id="title" class="ch-input" placeholder="e.g. Annual Blood Test" required>
+                        <div class="ch-error-text">Please enter a title.</div>
+                    </div>
+                    <div class="ch-form-row">
+                        <div class="ch-field">
+                            <label for="type">Type</label>
+                            <select id="type" class="ch-select">
+                                <option>Lab Result</option>
+                                <option>Prescription</option>
+                                <option>Diagnosis</option>
+                                <option>Vaccination</option>
+                                <option>Allergy</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="ch-field">
+                            <label for="date">Date *</label>
+                            <input type="date" id="date" class="ch-input" required>
+                            <div class="ch-error-text">Please choose a date.</div>
+                        </div>
+                    </div>
+                    <div class="ch-field">
+                        <label for="notes">Notes</label>
+                        <textarea id="notes" class="ch-textarea" rows="4" placeholder="Doctor's notes, results, dosage, etc."></textarea>
+                    </div>
+                    <div class="ch-field">
+                        <label for="fileInput">Attach a file (optional, under 2 MB)</label>
+                        <input type="file" id="fileInput" class="ch-input">
+                        <div class="ch-hint">Stored only on this device/browser.</div>
+                    </div>
+                    <button type="submit" class="ch-btn ch-btn-primary ch-btn-block">Save Record</button>
+                </form>
+            </div>
+
+            <div class="ch-card">
+                <div class="ch-flex" style="justify-content:space-between;">
+                    <h3 style="margin:0;">Your Records</h3>
+                    <input type="text" id="searchRecords" class="ch-input" placeholder="Search records…" style="max-width:180px;">
+                </div>
+                <div id="reportsEmpty" class="ch-empty-state">
+                    <div class="ch-empty-icon">📁</div>
+                    <p>No records yet — add your first one.</p>
+                </div>
+                <div id="reportsList" class="ch-mt-lg"></div>
+            </div>
+        </div>
+    </section>
+
+    <script>window.CH_BASE = "../"; window.CH_PAGE = "reports";</script>
+    <script src="../js/site.js"></script>
+    <script src="../js/personal_reports.js"></script>
+</body>
+</html>

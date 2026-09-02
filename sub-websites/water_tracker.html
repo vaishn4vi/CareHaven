@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Tracker — CareHaven</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <section class="ch-hero" style="padding:36px 0;">
+        <div class="ch-container">
+            <h1>Water Tracker</h1>
+            <p>Log your daily intake, keep a streak going, and get a goal tailored to you.</p>
+        </div>
+    </section>
+
+    <section class="ch-section" style="padding-top:20px;">
+        <div class="ch-container ch-grid ch-grid-2" style="align-items:flex-start;">
+
+            <div class="ch-card ch-center">
+                <h3 id="goalLabel">Goal: 2.0 L</h3>
+                <div class="ch-progress" style="height:22px; margin:16px 0;">
+                    <div id="waterBar" style="width:0%; display:flex; align-items:center; justify-content:flex-end; padding-right:8px; color:#fff; font-size:0.72rem; font-weight:700;"></div>
+                </div>
+                <p><span id="litersDrunk">0.0</span> L of <span id="litersGoal">2.0</span> L today</p>
+
+                <p class="ch-muted" style="font-size:0.85rem;">Tap a glass each time you drink one (250 ml).</p>
+                <div class="cups ch-flex ch-flex-wrap" style="justify-content:center; margin:16px 0;" id="cupsWrap"></div>
+
+                <div class="ch-flex" style="justify-content:center;">
+                    <button class="ch-btn ch-btn-primary" id="addGlassBtn">+ Add a glass (250 ml)</button>
+                    <button class="ch-btn ch-btn-ghost" id="resetTodayBtn">Reset today</button>
+                </div>
+
+                <div id="successMessage" style="display:none;" class="ch-badge ch-badge-good ch-mt-lg">🎉 Goal reached for today!</div>
+
+                <div class="ch-card ch-mt-lg" style="background:var(--ch-surface-alt); text-align:left;">
+                    <strong id="streakText">0-day streak</strong>
+                    <p class="ch-muted" style="font-size:0.82rem; margin:4px 0 0;">Reach your goal on consecutive days to build a streak.</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="ch-card ch-mb-lg">
+                    <h3>Personalize your goal</h3>
+                    <div class="ch-form-row">
+                        <div class="ch-field">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" class="ch-input" placeholder="Your age">
+                        </div>
+                        <div class="ch-field">
+                            <label for="gender">Gender</label>
+                            <select id="gender" class="ch-select">
+                                <option value="" disabled selected>Select</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ch-form-row">
+                        <div class="ch-field">
+                            <label for="weight">Weight (kg)</label>
+                            <input type="number" id="weight" class="ch-input" placeholder="Your weight">
+                        </div>
+                        <div class="ch-field">
+                            <label for="activity">Activity level</label>
+                            <select id="activity" class="ch-select">
+                                <option value="low">Low (mostly sitting)</option>
+                                <option value="moderate" selected>Moderate</option>
+                                <option value="high">High (very active)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="ch-btn ch-btn-primary ch-btn-block" id="calcGoalBtn">Update My Goal</button>
+                    <p id="personalizedAdvice" class="ch-muted ch-mt-lg" style="font-size:0.85rem;"></p>
+                </div>
+
+                <div class="ch-card ch-mb-lg">
+                    <h3>Reminders</h3>
+                    <div class="ch-flex">
+                        <label for="reminderInterval" class="ch-muted" style="font-size:0.85rem;">Remind me every</label>
+                        <select id="reminderInterval" class="ch-select" style="max-width:140px;">
+                            <option value="30">30 min</option>
+                            <option value="60" selected>1 hour</option>
+                            <option value="120">2 hours</option>
+                        </select>
+                    </div>
+                    <div class="ch-flex ch-mt-lg">
+                        <button class="ch-btn ch-btn-primary" id="setReminderBtn">Start Reminders</button>
+                        <button class="ch-btn ch-btn-ghost" id="stopReminderBtn" style="display:none;">Stop Reminders</button>
+                    </div>
+                    <p id="reminderStatus" class="ch-muted" style="font-size:0.8rem; margin-top:10px;"></p>
+                </div>
+
+                <div class="ch-card">
+                    <h3>Why water matters</h3>
+                    <ul style="margin:0; padding-left:20px; font-size:0.9rem; color:var(--ch-text-muted);">
+                        <li>Regulates body temperature</li>
+                        <li>Transports nutrients and oxygen to cells</li>
+                        <li>Helps remove waste products</li>
+                        <li>Supports concentration and mood</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>window.CH_BASE = "../"; window.CH_PAGE = "water";</script>
+    <script src="../js/site.js"></script>
+    <script src="../js/water_tracker.js"></script>
+</body>
+</html>

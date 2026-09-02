@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation Centers — CareHaven</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <section class="ch-hero" style="padding:36px 0;">
+        <div class="ch-container">
+            <h1>Blood Donation &amp; Test Centres</h1>
+            <p>Find a blood donation or testing centre near you.</p>
+        </div>
+    </section>
+
+    <section class="ch-section" style="padding-top:12px;">
+        <div class="ch-container">
+            <div class="ch-card ch-mb-lg">
+                <div class="ch-field" style="max-width:260px;">
+                    <label for="citySelect">City</label>
+                    <select id="citySelect" class="ch-select">
+                        <option value="pune">Pune</option>
+                        <option value="mumbai">Mumbai</option>
+                        <option value="bangalore">Bengaluru</option>
+                        <option value="chennai">Chennai</option>
+                        <option value="delhi">Delhi</option>
+                        <option value="kolkata">Kolkata</option>
+                        <option value="hyderabad">Hyderabad</option>
+                    </select>
+                </div>
+            </div>
+            <div id="centersList" class="ch-grid ch-grid-3"></div>
+        </div>
+    </section>
+
+    <script>window.CH_BASE = "../"; window.CH_PAGE = "blood";</script>
+    <script src="../js/site.js"></script>
+    <script src="../js/blood_centers.js"></script>
+</body>
+</html>

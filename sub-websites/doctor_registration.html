@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Registration — CareHaven</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <section class="ch-hero" style="padding:36px 0;">
+        <div class="ch-container">
+            <h1>Register as a Doctor</h1>
+            <p>Join CareHaven's network of healthcare professionals. Approved doctors appear as options when patients book an appointment.</p>
+        </div>
+    </section>
+
+    <section class="ch-section" style="padding-top:12px;">
+        <div class="ch-container ch-grid ch-grid-2" style="align-items:flex-start;">
+            <div class="ch-card">
+                <h3>Registration Form</h3>
+                <form id="doctorForm" novalidate>
+                    <div class="ch-field">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" class="ch-input" required>
+                        <div class="ch-error-text">Please enter your full name.</div>
+                    </div>
+                    <div class="ch-form-row">
+                        <div class="ch-field">
+                            <label for="qualification">Qualification *</label>
+                            <input type="text" id="qualification" class="ch-input" placeholder="e.g. MBBS, MD" required>
+                            <div class="ch-error-text">Required.</div>
+                        </div>
+                        <div class="ch-field">
+                            <label for="specialization">Specialization *</label>
+                            <select id="specialization" class="ch-select" required>
+                                <option value="" disabled selected>Select…</option>
+                                <option>General Physician</option>
+                                <option>Cardiologist</option>
+                                <option>Dermatologist</option>
+                                <option>Pediatrician</option>
+                                <option>Gynecologist</option>
+                                <option>Psychiatrist</option>
+                                <option>Orthopedic</option>
+                                <option>Dentist</option>
+                                <option>Other</option>
+                            </select>
+                            <div class="ch-error-text">Please select a specialization.</div>
+                        </div>
+                    </div>
+                    <div class="ch-form-row">
+                        <div class="ch-field">
+                            <label for="experience">Years of Experience *</label>
+                            <input type="number" id="experience" class="ch-input" min="0" max="70" required>
+                            <div class="ch-error-text">Enter a valid number of years.</div>
+                        </div>
+                        <div class="ch-field">
+                            <label for="registrationNumber">Medical Registration No. *</label>
+                            <input type="text" id="registrationNumber" class="ch-input" required>
+                            <div class="ch-error-text">Required.</div>
+                        </div>
+                    </div>
+                    <div class="ch-form-row">
+                        <div class="ch-field">
+                            <label for="phone">Contact Number *</label>
+                            <input type="tel" id="phone" class="ch-input" required>
+                            <div class="ch-error-text">Enter a valid phone number.</div>
+                        </div>
+                        <div class="ch-field">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" class="ch-input" required>
+                            <div class="ch-error-text">Enter a valid email.</div>
+                        </div>
+                    </div>
+                    <div class="ch-field">
+                        <label for="city">City *</label>
+                        <input type="text" id="city" class="ch-input" required>
+                        <div class="ch-error-text">Required.</div>
+                    </div>
+                    <p class="ch-hint">Document upload isn't available in this demo build — in a production version, verification documents would be securely uploaded and reviewed here.</p>
+                    <button type="submit" class="ch-btn ch-btn-primary ch-btn-block">Submit Registration</button>
+                </form>
+            </div>
+
+            <div class="ch-card">
+                <h3>Registered Doctors <span class="ch-badge ch-badge-good" id="doctorCount">0</span></h3>
+                <p class="ch-muted" style="font-size:0.85rem;">Stored on this device — this demo doesn't sync across devices.</p>
+                <div id="doctorsEmpty" class="ch-empty-state">
+                    <div class="ch-empty-icon">🩺</div>
+                    <p>No doctors registered yet.</p>
+                </div>
+                <div id="doctorsList"></div>
+            </div>
+        </div>
+    </section>
+
+    <script>window.CH_BASE = "../"; window.CH_PAGE = "doctor_reg";</script>
+    <script src="../js/site.js"></script>
+    <script src="../js/doctor_registration.js"></script>
+</body>
+</html>

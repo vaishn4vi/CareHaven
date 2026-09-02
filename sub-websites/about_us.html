@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us — CareHaven</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        .team-member { text-align: center; }
+        .team-member img, .team-member .avatar-fallback {
+            width: 110px; height: 110px; border-radius: 50%; object-fit: cover;
+            margin: 0 auto 12px; border: 3px solid var(--ch-primary-light);
+        }
+        .avatar-fallback {
+            display: flex; align-items: center; justify-content: center;
+            background: var(--ch-primary-light); color: var(--ch-primary-dark);
+            font-weight: 700; font-size: 1.6rem;
+        }
+    </style>
+</head>
+<body>
+    <section class="ch-hero" style="padding:36px 0;">
+        <div class="ch-container">
+            <h1>About CareHaven</h1>
+            <p>Simplifying everyday healthcare, one tool at a time.</p>
+        </div>
+    </section>
+
+    <section class="ch-section" style="padding-top:12px;">
+        <div class="ch-container">
+            <div class="ch-card ch-mb-lg" style="max-width:760px;">
+                <h3>Our Story</h3>
+                <p>
+                    CareHaven started as a simple idea among four friends who wanted to address a common problem in
+                    everyday healthcare: how fragmented it is across different apps and services. We wanted a single,
+                    calm place where people could track personal health metrics, find nearby hospitals, manage
+                    appointments, and learn from trustworthy information — without switching between a dozen apps.
+                </p>
+                <p>
+                    We combined our different strengths to build something genuinely useful, focused on making
+                    healthcare more accessible, organized and efficient for everyone who uses it.
+                </p>
+            </div>
+
+            <h3>Our Team</h3>
+            <div class="ch-grid ch-grid-4 ch-mt-lg" id="teamGrid">
+                <div class="team-member">
+                    <img src="../images/vaish.jpg" alt="Vaishnavi Amancharla" onerror="this.outerHTML='<div class=&quot;avatar-fallback&quot;>VA</div>'">
+                    <h4>Vaishnavi Amancharla</h4>
+                </div>
+                <div class="team-member">
+                    <img src="../images/shreya.jpg" alt="Shreya Subramanian" onerror="this.outerHTML='<div class=&quot;avatar-fallback&quot;>SS</div>'">
+                    <h4>Shreya Subramanian</h4>
+                </div>
+                <div class="team-member">
+                    <div class="avatar-fallback">YG</div>
+                    <h4>Yuvika Gandhi</h4>
+                </div>
+                <div class="team-member">
+                    <img src="../images/aditi.jpg" alt="Aditi S" onerror="this.outerHTML='<div class=&quot;avatar-fallback&quot;>AS</div>'">
+                    <h4>Aditi S</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>window.CH_BASE = "../"; window.CH_PAGE = "about";</script>
+    <script src="../js/site.js"></script>
+</body>
+</html>

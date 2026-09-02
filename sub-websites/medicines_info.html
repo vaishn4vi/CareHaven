@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicines Info — CareHaven</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <section class="ch-hero" style="padding:36px 0;">
+        <div class="ch-container">
+            <h1>Medicines Info</h1>
+            <p>Look up common medicines — composition, typical uses, and allergy warnings.</p>
+        </div>
+    </section>
+
+    <section class="ch-section" style="padding-top:12px;">
+        <div class="ch-container">
+            <div class="ch-emergency ch-mb-lg">
+                This is general information only, not medical advice. Always follow your doctor's or pharmacist's instructions, check the label, and ask a professional before starting, stopping or combining medicines.
+            </div>
+
+            <div class="ch-card ch-mb-lg">
+                <div class="ch-flex ch-flex-wrap">
+                    <input type="text" id="medSearch" class="ch-input search-input" placeholder="Search by name (e.g. Paracetamol, Ibuprofen)" style="max-width:320px;">
+                    <button class="ch-btn ch-btn-primary search-btn" id="medSearchBtn">Search</button>
+                </div>
+            </div>
+
+            <div id="medResults" class="ch-grid ch-grid-3"></div>
+        </div>
+    </section>
+
+    <script>window.CH_BASE = "../"; window.CH_PAGE = "medicines";</script>
+    <script src="../js/site.js"></script>
+    <script src="../js/medicines_info.js"></script>
+</body>
+</html>
